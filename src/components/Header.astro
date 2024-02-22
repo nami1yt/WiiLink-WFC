@@ -24,6 +24,12 @@ const { hasSearch, specialInstructions, loadingBarPosition } = Astro.props;
       </div>
       <div>
         <button
+        type="button"
+        id="reloadbtn"
+        class="btn btn-primary"
+        onclick="window.location.reload();"><i class="fa-solid fa-rotate-right"></i></button
+      >
+        <button
           type="button"
           class="btn btn-danger"
           onclick="closeCustomization();"><i class="fa fa-close"></i></button
