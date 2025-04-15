@@ -49,14 +49,12 @@ export function prettifyDateTime(timestamp) {
   const minute = dateObj.getMinutes();
   const second = dateObj.getSeconds();
 
-  return (`${hour < 10 ? "0" : ""}${hour}:${minute < 10 ? "0" : ""}${minute}:${
-    second < 10 ? "0" : ""
-  }${second}`);
+  return (`${hour < 10 ? "0" : ""}${hour}:${minute < 10 ? "0" : ""}${minute}:${second < 10 ? "0" : ""
+    }${second}`);
 }
 
 export function getConnMatrix(connMatrix) {
   const arr = connMatrix.split("&&");
-  console.log(arr);
   const names = [];
   connMatrix = [];
 
@@ -67,17 +65,15 @@ export function getConnMatrix(connMatrix) {
       connMatrix.push(arr[i]);
     }
   }
-  console.log(names);
-  console.log(connMatrix);
 
   for (let i = 0; i < connMatrix.length; i++) {
     connMatrix[i] = connMatrix[i].split("");
     connMatrix[i].splice(i, 0, "\\");
   }
 
-  function emojify (value) {
+  function emojify(value) {
     switch (value) {
-      case "0": 
+      case "0":
         return " ⬜️ ";
       case "1":
         return " 🟨 ";
@@ -90,8 +86,8 @@ export function getConnMatrix(connMatrix) {
     }
   }
 
- // display the matrix in a div
- let connMatrixHtml = "<div class='conn-matrix' style='width:280px; padding:20px;'>";
+  // display the matrix in a div
+  let connMatrixHtml = "<div class='conn-matrix' style='width:280px; padding:20px;'>";
   for (let i = 0; i < connMatrix.length; i++) {
     connMatrixHtml += "<div class='conn-row' style='display:flex; align-items:center; justify-content:space-between;'><div style='font-family:miifont, system-ui;'>" + names[i] + "</div><div style='background-color:#00000010; padding-left:5px; padding-right:5px; border-radius:4px;'>";
     for (let j = 0; j < connMatrix[i].length; j++) {
@@ -272,135 +268,107 @@ export function getRating(rating, classification) {
 }
 
 // Obtains the correct controller image for each control type
-export function getController(xml, i) {
-  var xmlDoc = xml.responseXML;
-  var x = xmlDoc.getElementsByTagName("game");
-  var inputPlayers = x[i]
-    .getElementsByTagName("input")[0]
-    .getAttribute("players");
-  var controls = x[i].getElementsByTagName("control");
-  var controlTypes = "";
-
-  if (inputPlayers == "") {
-    controlTypes =
-      "<b>What a bummer...</b><br>This title features no control types.";
-  }
-
-  for (var k = 0; k < controls.length; k++) {
-    var type = controls[k].getAttribute("type");
-    switch (type) {
+export function getController(controller) {
+  if (controller) {
+    switch (controller.type) {
       case "wiimote":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/wiimote.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/wiimote.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/wiimote.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px">`;
+          return `<img src="/img/controllers/wiimote.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px">`;
         }
-        break;
       case "motionplus":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/motionplus.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-80%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/motionplus.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-80%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/motionplus.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
+          return `<img src="/img/controllers/motionplus.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
         }
-        break;
       case "nunchuk":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/nunchuk.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/nunchuk.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/nunchuk.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
+          return `<img src="/img/controllers/nunchuk.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
         }
-        break;
       case "classiccontroller":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/classiccontroller.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/classiccontroller.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/classiccontroller.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
+          return `<img src="/img/controllers/classiccontroller.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
         }
-        break;
       case "wheel":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/wheel.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/wheel.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/wheel.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
+          return `<img src="/img/controllers/wheel.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
         }
-        break;
       case "gamecube":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/gamecube.svg" style="margin-right:15px; filter:brightness(1000); scale:85%;" height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/gamecube.svg" style="margin-right:15px; filter:brightness(1000); scale:85%;" height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/gamecube.svg" style="margin-right:15px; filter:brightness(1000); scale:85%;" height="60px">`;
+          return `<img src="/img/controllers/gamecube.svg" style="margin-right:15px; filter:brightness(1000); scale:85%;" height="60px">`;
         }
-        break;
       case "balanceboard":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/balanceboard.svg" style="margin-right:15px; filter:brightness(1000);"height="50px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/balanceboard.svg" style="margin-right:15px; filter:brightness(1000);"height="50px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/balanceboard.svg" style="margin-right:15px; filter:brightness(1000);"height="50px">`;
+          return `<img src="/img/controllers/balanceboard.svg" style="margin-right:15px; filter:brightness(1000);"height="50px">`;
         }
-        break;
       case "zapper":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/zapper.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/zapper.svg" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/zapper.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
+          return `<img src="/img/controllers/zapper.svg" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
         }
-        break;
       case "guitar":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/guitar.png" style="margin-right:15px; filter:invert(1);"height="70px"><span style="font-size:10px; transform:translate(-100%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/guitar.png" style="margin-right:15px; filter:invert(1);"height="70px"><span style="font-size:10px; transform:translate(-100%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/guitar.png" style="margin-right:15px; filter:invert(1);"height="70px">`;
+          return `<img src="/img/controllers/guitar.png" style="margin-right:15px; filter:invert(1);"height="70px">`;
         }
-        break;
       case "keyboard":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/keyboard.png" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/keyboard.png" style="margin-right:15px; filter:brightness(1000);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/keyboard.png" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
+          return `<img src="/img/controllers/keyboard.png" style="margin-right:15px; filter:brightness(1000);"height="60px">`;
         }
-        break;
       case "drums":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/drums.png" style="margin-right:15px; filter:invert(1);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/drums.png" style="margin-right:15px; filter:invert(1);"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/drums.png" style="margin-right:15px; filter:invert(1);"height="60px">`;
+          return `<img src="/img/controllers/drums.png" style="margin-right:15px; filter:invert(1);"height="60px">`;
         }
-        break;
       case "microphone":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/microphone.png" style="margin-right:15px; filter:invert(1);"height="50px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/microphone.png" style="margin-right:15px; filter:invert(1);"height="50px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/microphone.png" style="margin-right:15px; filter:invert(1);"height="50px">`;
+          return `<img src="/img/controllers/microphone.png" style="margin-right:15px; filter:invert(1);"height="50px">`;
         }
-        break;
       case "nintendods":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/nintendods.svg" style="margin-right:15px; filter: invert(1) brightness(1000); scale:80%;"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/nintendods.svg" style="margin-right:15px; filter: invert(1) brightness(1000); scale:80%;"height="60px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/nintendods.svg" style="margin-right:15px; filter:invert(1) brightness(1000); scale:80%;" height="60px">`;
+          return `<img src="/img/controllers/nintendods.svg" style="margin-right:15px; filter:invert(1) brightness(1000); scale:80%;" height="60px">`;
         }
-        break;
       case "wiispeak":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/wiispeak.png" style="margin-right:15px; filter:brightness(1000);"height="40px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/wiispeak.png" style="margin-right:15px; filter:brightness(1000);"height="40px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/wiispeak.png" style="margin-right:15px; filter:brightness(1000);"height="40px">`;
+          return `<img src="/img/controllers/wiispeak.png" style="margin-right:15px; filter:brightness(1000);"height="40px">`;
         }
-        break;
       case "udraw":
-        if (controls[k].getAttribute("required") == "true") {
-          controlTypes += `<img src="/img/controllers/udraw.svg" style="margin-right:15px; filter:brightness(1000);"height="50px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
+        if (controller.required == "true") {
+          return `<img src="/img/controllers/udraw.svg" style="margin-right:15px; filter:brightness(1000);"height="50px"><span style="font-size:10px; transform:translate(-125%, 40px); position:absolute;" class="badge text-bg-danger">Required</span></img>`;
         } else {
-          controlTypes += `<img src="/img/controllers/udraw.svg" style="margin-right:15px; filter:brightness(1000);"height="50px">`;
+          return `<img src="/img/controllers/udraw.svg" style="margin-right:15px; filter:brightness(1000);"height="50px">`;
         }
-        break;
       case "mii":
         break;
       default:
-        controlTypes += type;
+        return '<img src="/img/controllers/wiimote.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px">';
     }
+  } else {
+    return '<img src="/img/controllers/wiimote.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px">';
   }
-  return controlTypes;
 }
 
 // Prevents HTML injection in the usernames
@@ -416,4 +384,89 @@ export function sanitizeHTML(text) {
   return text.replace(/[&<>"']/g, function (m) {
     return map[m];
   });
+}
+
+export function getOnlineCompat(id, players, features) {
+  const blocklist = [
+    'RCD',
+    'RVY',
+    'SC7',
+    'RJA',
+    'SM8',
+  ]
+
+  if (parseInt(players) == 0 && features == undefined) {
+    return '<i class="fa-solid fa-triangle-exclamation"></i> This title does not support online multiplayer.';
+  } else if (parseInt(players) == 0 && features.length > 0) {
+    return '<i class="fa-solid fa-triangle-exclamation"></i> This title does not support online multiplayer, but has online features.';
+  }
+
+  if (blocklist.includes(id.substring(0, 3))) {
+    return '<i class="fa-solid fa-triangle-exclamation"></i> This title uses a different online system, therefore it is not compatible with WiiLink WFC.';
+  }
+
+  return 1;
+}
+
+export function getPreferredStyle() {
+  let displayMode = localStorage.getItem("displayMode") || "complete";
+
+  // Initialize style variables with defaults
+  let styles = {
+    display: "display:grid;",
+    extraDisplay: "display:flex;",
+    sizeFix: "height:86%; margin-top:15px;",
+    size1: "grid-column: auto / span 5; grid-row: auto / span 2;",
+    size2: "grid-column: auto / span 5; grid-row: auto / span 2;",
+    size3: "grid-column: auto / span 6; grid-row: auto / span 1;",
+    size4: "grid-column: auto / span 6; grid-row: auto / span 1;",
+    hideErrElement: false
+  };
+
+  switch (displayMode) {
+    case "compact":
+      styles.display = "display:none;";
+      styles.size1 = "grid-column: auto / span 3; grid-row: auto / span 2;";
+      styles.size2 = "grid-column: auto / span 9; grid-row: auto / span 2;";
+      styles.size3 = "grid-column: auto / span 2; grid-row: auto / span 1;";
+      styles.size4 = "grid-column: auto / span 10; grid-row: auto / span 1;";
+      styles.sizeFix = "height:100%; margin-top:0px;";
+      break;
+
+    case "utilitarian":
+      styles.display = "display:none !important;";
+      styles.extraDisplay = "display:none !important;";
+      styles.sizeFix = "height:100%; margin-top:0px;";
+      styles.size2 = "grid-column: auto / span 12; grid-row: auto / span 2;";
+      styles.size3 = "grid-column: auto / span 2; grid-row: auto / span 1;";
+      styles.size4 = "grid-column: auto / span 10; grid-row: auto / span 1;";
+      styles.hideErrElement = true;
+      break;
+  }
+
+  // Apply styles to DOM elements if they exist
+  if (typeof document !== 'undefined') {
+    const elements = {
+      "size1": document.querySelectorAll(".size1"),
+      "size2": document.querySelectorAll(".size2"),
+      "size3": document.querySelectorAll(".size3"),
+      "size4": document.querySelectorAll(".size4")
+    };
+
+    // Apply styles to elements with corresponding classes
+    for (const [className, style] of Object.entries(styles)) {
+      if (elements[className]) {
+        elements[className].forEach(el => {
+          el.setAttribute("style", el.getAttribute("style") + ";" + style);
+        });
+      }
+    }
+
+    // Special handling for the error element
+    if (styles.hideErrElement && document.getElementById("errhide")) {
+      document.getElementById("errhide").style.display = "none";
+    }
+  }
+
+  return styles;
 }

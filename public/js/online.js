@@ -159,7 +159,7 @@ function displayTitleData(GameID) {
         reject("Error: " + this.status);
       }
     };
-    xmlhttp.open("GET", "/xml/wiitdb.xml", true);
+    xmlhttp.open("GET", "https://wiilink.ca/extras/wiitdb.xml", true);
     xmlhttp.send();
   });
 }
@@ -188,6 +188,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           onlineStats[game.gameId].online,
           onlineStats[game.gameId].active,
           onlineStats[game.gameId].groups,
+          game.gameId,
         ];
 
         const titleDataReturn = await displayTitleData(game.gamespyId);
@@ -199,27 +200,41 @@ document.addEventListener("DOMContentLoaded", async function () {
           isBig = "grid-column: auto / span 1; grid-row: auto / span 1";
         }
 
+
         // Add the image elements to the HTML
-        onlineNow.innerHTML +=
+                onlineNow.innerHTML +=
           '<a href="/online/' +
-          titleDataReturn[22] +
+          extraData[3] +
           '" class="card-online" style="' +
           isBig +
-          ' "><img src="' + loadImage("cover", titleDataReturn[22]) + '" id="card-bg"><div style="display:flex; align-items:center; justify-content:space-between;"><img src="' + loadImage("disc", titleDataReturn[22]) + '" style="width:70px; height:70px;"><div><h5 style="font-weight:800; text-align:right;">' +
+          ' ">' +
+          '<img src="' +
+          loadImage("cover", titleDataReturn[22]) +
+          '" id="card-bg" onerror="this.style.opacity=0;">' +
+          '<div style="display:flex; align-items:center; justify-content:space-between;">' +
+          '<img src="' +
+          loadImage("disc", titleDataReturn[22]) +
+          '" style="width:70px; height:70px;" onerror="this.style.opacity=0;">' +
+          '<div><h5 style="font-weight:800; text-align:right;">' +
           titleDataReturn[0] +
           "</h5><h6 style='text-align:right; opacity:0.5;'>" +
           titleDataReturn[1] +
           " / " +
           titleDataReturn[2] +
-          "</h6></div></div><p style='padding-top:20px; padding-bottom:25px; display:flex; gap:20px; align-items:center; justify-content:center;'><b style='text-align:center;'><b style='font-family:rubik; font-size:30px;'>" +
+          "</h6></div></div>" +
+          '<p style="padding-top:20px; padding-bottom:25px; display:flex; gap:20px; align-items:center; justify-content:center;">' +
+          "<b style='text-align:center;'><b style='font-family:rubik; font-size:30px;'>" +
           extraData[0] +
-          "</b><br><i class='fa-solid fa-user' style='margin-right:5px;'></i> online</b><b style='text-align:center;'><b style='font-family:rubik; font-size:30px;'>" +
+          "</b><br><i class='fa-solid fa-user' style='margin-right:5px;'></i> online</b>" +
+          "<b style='text-align:center;'><b style='font-family:rubik; font-size:30px;'>" +
           extraData[1] +
-          "</b><br><i class='fa-solid fa-gamepad' style='margin-right:5px;'></i> Active</b><b style='text-align:center;'><b style='font-family:rubik; font-size:30px;'>" +
+          "</b><br><i class='fa-solid fa-gamepad' style='margin-right:5px;'></i> Active</b>" +
+          "<b style='text-align:center;'><b style='font-family:rubik; font-size:30px;'>" +
           extraData[2] +
           "</b><br><i class='fa-solid fa-users-rays' style='margin-right:5px;'></i>Groups</b></p>" +
           titleDataReturn[7] +
-          " <br><div style='display:flex; align-items:center; justify-content:space-between;'><p><span class='badge bg-translucent'>" +
+          " <br><div style='display:flex; align-items:center; justify-content:space-between;'>" +
+          "<p><span class='badge bg-translucent'>" +
           titleDataReturn[3] +
           "</span> <span class='badge bg-translucent'>" +
           titleDataReturn[4] +

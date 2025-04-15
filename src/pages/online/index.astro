@@ -1,6 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Loading from "../../components/Loading.astro";
 import Header from "../../components/Header.astro";
 import Search from "../../components/Search.astro";
 import Footer from "../../components/Footer.astro";
@@ -25,7 +24,6 @@ const { title, text, desc } = Astro.props;
   description="Find out what people are playing on WWFC! | WiiLink Wi-Fi Connection (WWFC) is a brand new service that allows you to play online games with your friends on your Wii!"
   image="img/banners/online.png"
 >
-  <Loading />
   <Header
     hasSearch={false}
     specialInstructions="padding-top:30px; backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); background-color: #12121200; box-shadow:0px 0px 0px #ffffff00; position:absolute;"

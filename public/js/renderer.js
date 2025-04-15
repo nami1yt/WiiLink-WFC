@@ -115,40 +115,6 @@ function render(xml) {
         var hash3 = x[i].getElementsByTagName("rom")[0].getAttribute("sha1");
         var extraDataTitle = `Name: ${trueName}\nRom Dump: ${romName}\nFilesize: ${romSize}GB\nVersion: ${romVersion}\ncrc: ${hash}\nmd5: ${hash2}\nsha1: ${hash3}`;
 
-        // Display the data on the site
-        var title = document.getElementById("gameId");
-        var discImage = "";
-        if (gamespyCheck) {
-          discImage = gamespyCheck;
-        } else {
-          discImage = titleCheck;
-        }
-        title.innerHTML =
-          '<img src="' +
-          loadImage("disc", discImage) +
-          '" alt="' +
-          locales[0].getElementsByTagName("title")[0].textContent +
-          ' Game Disc" style="margin-right:15px;" width="70px" onerror="this.onerror=null; this.src=\'/img/disc_placeholder.png\';"><b>' +
-          locales[0].getElementsByTagName("title")[0].textContent +
-          "</b>";
-
-        var bg = document.getElementsByClassName("bginner");
-        bg[0].innerHTML =
-          '<img src="' +
-          loadImage("coverfullHQ", discImage) +
-          '" alt="' +
-          locales[0].getElementsByTagName("title")[0].textContent +
-          ' Background" style="margin-right:15px;" width="100%">';
-
-        var img = document.getElementById("img");
-        img.style.animation = "fadein 200ms ease-in-out forwards";
-        img.style.opacity = "0";
-        img.innerHTML =
-          '<div class="coverimg"><img src="' +
-          loadImage("coverfullHQ", discImage) +
-          '" alt="' +
-          locales[0].getElementsByTagName("title")[0].textContent +
-          ' Game Boxart" class="imginner"></div>';
 
         var data = document.getElementById("data");
 
@@ -234,7 +200,7 @@ function render(xml) {
               !isFound &&
               data[j]?.patchId &&
               data[j]?.patchId[0].substring(0, 4) ===
-                id.textContent.substring(0, 4)
+              id.textContent.substring(0, 4)
             ) {
               isFound = true;
               document.getElementById("onlineload").style.display = "block";
@@ -345,7 +311,7 @@ function render(xml) {
                 if (
                   data[l]?.gamespyId &&
                   data[l]?.gamespyId.substring(0, 3) ==
-                    id.textContent.substring(0, 3)
+                  id.textContent.substring(0, 3)
                 ) {
                   onlineUpdater(data[l]); // Fetch data on page load
                   setInterval(() => {

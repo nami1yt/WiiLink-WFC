@@ -1,11 +1,22 @@
 ---
 export const prerender = true;
 import Layout from "../../layouts/Layout.astro";
-import Loading from "../../components/Loading.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import games from "../../../public/json/pages.json";
 import DNSInstructions from "../../components/DNSInstructions.astro";
+
+import {
+  getIconForGenre,
+  getRating,
+  getController,
+  loadImage,
+  fetchCompatData,
+  getOnlineCompat,
+} from "../../../public/js/helper_functions.js";
+
+import { XMLParser } from "fast-xml-parser";
+
 export async function getStaticPaths() {
   return games.map((data) => ({
     params: {
@@ -18,9 +29,46 @@ export async function getStaticPaths() {
     },
   }));
 }
-const { title, text, gamespyId } = Astro.props;
+let { title, text, gamespyId } = Astro.props;
 
+const response = await fetch("https://wiilink.ca/extras/wiitdb.xml");
+const xmlData = await response.text();
 
+const parser = new XMLParser({
+  ignoreAttributes: false,
+  attributeNamePrefix: "",
+});
+const jsonData = parser.parse(xmlData);
+
+// Match the game.id with the title
+let game = jsonData.datafile.game.find((game) => game.gameId === title);
+
+// Merge the "games" json with the "game" json if patchId exists on the pages.json for the game (we need to match game.id with gameId on the pages.json), if patches exist, we will add them to the game object in the wi-fi object as "patches"
+if (game) {
+  const titlestuff = games.find((game) => game.gameId === title).gameId;
+  // if (patchId) {
+  //   // Add the patches to the game object appending to the root of the game object
+  //   game.wifi.patches = patchId;
+  //   console.log(patchId);
+  //   if (gamespyId) game.wifi.gamespyId = patchId;
+  // }
+} else {
+  // retry by using the gamespyId
+  const gameByGamespyId = jsonData.datafile.game.find(
+    (game) => game.id === gamespyId
+  );
+  if (gameByGamespyId) {
+    game = gameByGamespyId;
+  } else {
+    // If the game is not found, return a 404 response
+    return new Response(null, {
+      status: 404,
+      headers: {
+        Location: "/404", // Redirect to your custom 404 page
+      },
+    });
+  }
+}
 ---
 
 <Layout
@@ -28,164 +76,355 @@ const { title, text, gamespyId } = Astro.props;
   description={`${title} - WiiLink Wi-Fi Connection (WWFC) is a brand new service that allows you to play online games with your friends on your Wii!`}
   image="/img/banners/game.png"
 >
-  <Loading msg={`${text} - ${title}`} />
+  <Header hasSearch={true} />
+  <DNSInstructions />
 
-  <!-- Grab gameTDB data and insert into the site -->
-  <script is:inline src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
-  ></script>
-  <script type="module" src="/js/helper_functions.js"></script>
-  <script type="module" src="/js/renderer.js"></script>
-
-  <html>
-    <body>
-      <script>
-        0;
-      </script>
-      <Header hasSearch={true} />
-      <DNSInstructions />
-
-      <div class="herobg" id="herobg"><div class="bginner"></div></div>
-      <div style="transform:translate(0, 60px);">
-        <div
-          style="left:50%; width:90%; max-width: 1500px; padding:20px; transform:translate(-50%, 28px);  animation:fadeleft 300ms 0.1s ease-out forwards; opacity:0; position:relative; display:none;"
-          id="mobilehide"
-        >
-          <h1
-            id="gameId"
-            style="width:900px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;"
-          >
-            {title}
-          </h1>
-          <p id="gamespyId" style="display:none">{gamespyId}</p>
+  <div class="herobg" id="herobg">
+    <div class="bginner">
+      <img
+        src={loadImage("coverfullHQ", game.id)}
+        alt={game.locale.title + " Background"}
+        style="margin-right:15px;"
+        width="100%"
+      />
+    </div>
+  </div>
+  <div style="transform:translate(0, 60px);">
+    <div
+      style="left:50%; width:90%; max-width: 1500px; padding:20px; transform:translate(-50%, 28px);  animation:fadeleft 300ms 0.1s ease-out forwards; opacity:1; position:relative; display:block;"
+      id="mobilehide"
+    >
+      <h1
+        style="margin-bottom:38px; width:900px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; display:flex; flex-direction:row; align-items:center; gap:8px;"
+      >
+        <img
+          src={game.type === "DS"
+            ? `https://art.gametdb.com/ds/coverHQ/US/${game.id}.jpg`
+            : loadImage("disc", game.id)}
+          alt={game.locale.title + " Game Disc"}
+          style="margin-right:15px; border-radius:8px;"
+          width="70px"
+          onerror="this.onerror=null; this.src='/img/disc_placeholder.png';"
+        />
+        <span>
+          <b>{game.locale.title}</b>
           <p
-            style="width:500px; transform:translate(86px, -30px); opacity:0.5;"
+            style="margin-bottom:6px !important; font-weight:normal; width:500px; font-size:18px; opacity:0.5;"
           >
-            {title}
-            {gamespyId ? "- " + gamespyId.substring(0, 3) : ""}
+            <span id="gamespyId">{title}</span> | {game.id.substring(0, 3)}
           </p>
-        </div>
-        <div
-          id="fetchData"
-          style="left:50%; top:50%; transform:translate(-50%, -50%); font-size:20px; color:white; opacity:0; animation:fadein 0.5s 200ms linear forwards; position:absolute;"
-        >
+        </span>
+      </h1>
+    </div>
+    <div class="data-holder" id="errnomatch">
+      <div
+        id="img"
+        style="animation: fadein 200ms ease-in-out forwards; opacity: 0;"
+      >
+        <div class="coverimg">
           <img
-            src="/img/loading.gif"
-            style="margin-right:8px; filter:brightness(100000);"
-            height="30px"
-          /> Fetching game data for <b>{text}</b>...
-          <a href="https://discord.gg/wiilink">
-            <br /><button
-              class="btn btn-primary"
-              style="left:50%; transform:translate(-50%, 20px); position:relative;"
-            >
-              <i class="fa-brands fa-discord"></i> Join our Discord
-            </button>
-          </a>
-        </div>
-        <div class="data-holder" id="errnomatch">
-          <div id="img"></div>
-          <div id="data" style="width:100%; position:relative;"></div>
-        </div>
-        <div id="onlinecontainer">
-          <div id="containerdata"></div>
-          <div
-            style="color:#4287f5; bottom:-50px; left:-20px; opacity:0.1; text-transform:uppercase; font-family:Gilroy; font-size:100px; position:absolute;"
-          >
-            Statistics
-          </div>
-        </div>
-        <div
-          style="width:90%;  max-width:1500px; left:50%; transform:translate(-50%, 0); display:flex; justify-content:space-between; z-index:1000; position:relative;"
-        >
-          <div
-            id="onlineSpecialInfo"
-            style="display:flex; flex-direction: row; align-items: center; gap:8px; display:none;"
-          >
-            <div
-              id="dropupcompat"
-              class="btn-group dropup"
-              data-bs-toggle="tooltip"
-              data-bs-placement="bottom"
-              data-bs-title="Compatibility information"
-            >
-              <button
-                type="button"
-                class="btn btn-dark dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fa fa-circle-question"></i>
-              </button>
-              <ul
-                id="compat"
-                style="width:240px; padding:8px; z-index:100000; position:relative;"
-                class="dropdown-menu"
-              >
-              </ul>
-            </div>
-            <div id="dropup" class="btn-group dropup">
-              <button
-                type="button"
-                class="btn btn-success dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fa fa-download" style="margin-right:5px;"></i> Download
-                patches
-              </button>
-              <ul
-                id="downloadPatchButton"
-                style="z-index:100000; position:relative;"
-                class="dropdown-menu"
-              >
-              </ul>
-            </div>
-          </div>
-          <p
-            id="powered"
-            style="text-align: right; filter:opacity(0.3) brightness(10000); display:none; position:relative;"
-          >
-            Data provided by <a
-              href={`https://www.gametdb.com/wii/${gamespyId ? gamespyId : title}`}
-              >GameTDB</a
-            > and WiiLink Violet API.
-          </p>
-        </div>
-        <div
-          style="width:90%; max-width:1500px; left:50%; transform:translate(-50%, 0); margin-bottom:200px; animation:fadein 200ms linear forwards; opacity:0; display:none; position:relative;"
-          id="errhide"
-        >
-          <h1 style="font-family:Gilroy; margin-top:50px; margin-bottom:20px;">
-            About the game:
-          </h1>
-          <p id="synopsis" style="font-size:20px;">
-            This title features no synopsis, why not add one yourself on
-            gameTDB?
-          </p>
-          <h1
-            style="font-family:Gilroy;margin-top:50px; margin-bottom:20px; display:flex; fex-wrap:wrap; justify-content:space-between;"
-            id="recommendedHeader"
-          >
-            You may also like:
-            <span
-              style="color:white; font-family:system-ui; font-size:18px; opacity:0.3; display:flex; align-items:center; position:relative;"
-              >Matches genre <i
-                style="margin-left:8px; padding:5px; padding-left:10px; padding-right:10px; background-color:#ffffff20; border-radius:4px; position:relative;"
-                id="genreSuggestion"></i></span
-            >
-          </h1>
-          <div id="recommendedTitles">
-            <i style="color:white;"
-              >There are no recommendations for this title...</i
-            >
-          </div>
+            src={game.type === "DS"
+              ? `https://art.gametdb.com/ds/coverfullHQ/US/${game.id}.jpg`
+              : loadImage("coverfullHQ", game.id)}
+            alt={game.locale.title + " Game Boxart"}
+            class="imginner"
+            onerror="this.style.display='none';"
+          />
         </div>
       </div>
-      <Footer />
-    </body>
-  </html>
+      <div id="data" style="width:100%; position:relative;">
+        <div
+          class="smalldatapill"
+          style="${display}; animation: fadein 200ms ease-in-out forwards; opacity:0;"
+        >
+          <l
+            id="extradata"
+            title="${extraDataTitle}"
+            style="grid-column: auto / span 5; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;"
+            ><i class="fa-solid fa-compact-disc"></i> {game.name}</l
+          >
+          <l
+            title={game.developer + " | " + game.publisher}
+            id="publisher"
+            style="grid-column: auto / span 3; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; position:relative;"
+            ><i class="fa-solid fa-file-code"></i>
+            {game.developer} | {game.publisher}</l
+          >
+          <l style="grid-column: auto / span 2;"
+            ><i class="fa-solid fa-earth-americas"></i> {game.region}</l
+          >
+          <l
+            title={game.languages}
+            style="grid-column: auto / span 3; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; position:relative;"
+            ><i class="fa-solid fa-language"></i> {game.languages}</l
+          >
+          <l style="grid-column: auto / span 3;"
+            ><i class="fa-solid fa-calendar"></i>
+            {game.date.day}/{game.date.month}/{game.date.year}</l
+          >
+        </div>
+        <div
+          class="bigdatapill sizeFix"
+          style="margin-top: 18px; animation: fadein 200ms ease-in-out forwards; opacity:0;"
+        >
+          <l
+            class="genre extraDisplay size1"
+            style="border:2px solid #4287f520; display:flex; flex-direction:column; align-items:center; justify-content:center;"
+            ><div
+              class="macremove"
+              style="color:#4287f5; bottom:-50px; left:-20px; opacity:0.1; text-transform:uppercase; font-family:Gilroy; font-size:100px;position:absolute;"
+            >
+              Genre
+            </div>
+            <span
+              set:html={(game.genre || "Unknown")
+                .split(",")
+                .map((genre) => {
+                  return (
+                    "<i class='fas " +
+                    getIconForGenre(genre) +
+                    "'></i> " +
+                    genre.charAt(0).toUpperCase() +
+                    genre.slice(1) +
+                    "<br>"
+                  );
+                })
+                .join("")}
+            /></l
+          >
+          <l
+            class="rating"
+            style="border:2px solid #42f55d20; grid-column: auto / span 2; grid-row: auto / span 2; ${display}"
+          >
+            <div
+              class="macremove"
+              style="color:#42f55d; bottom:-50px; left:-20px; opacity:0.1; text-transform:uppercase; font-family:Gilroy; font-size:100px;position:absolute;"
+            >
+              {game.rating?.type || "No Rating"}
+            </div>
+            <span
+              set:html={game.rating
+                ? getRating(game.rating.value, game.rating.rating)
+                : "No rating available"}
+            />
+          </l>
+          <l
+            id="onlinemobile"
+            class="size2"
+            style="min-height:250px; border:2px solid #dd42f520; display:flex; justify-content:center; align-items:center; position:relative;"
+            ><div
+              class="macremove"
+              style="color:#dd42f5; bottom:-50px; left:-20px; opacity:0.1; text-transform:uppercase; font-family:Gilroy; font-size:100px; position:absolute;"
+            >
+              WI-FI
+            </div><b id="WFCdetails" style="width:100%; max-width:330px;"
+              ><img
+                src="/img/loading.gif"
+                id="onlineload"
+                style="left:50%; transform:translate(-50%, 0); filter:brightness(100000000); display:none; position:relative;"
+                width="30px"
+              /></b
+            >
+            <div
+              id="onlineplaycontainer"
+              style="top:20px; display:flex; align-items:center; justify-content:center; position:absolute;"
+            >
+              <b id="onlineplayno" style="font-size:30px; margin-right:18px;"
+                >{game.wifi.players}</b
+              ><b
+                id="wifino"
+                set:html={// For all players, add a user icon
+                Array.from({ length: game.wifi.players }).map((_) => {
+                  return "<i class='fa fa-user' style='margin-right:8px;'></i>";
+                })}
+              />
+              <span
+                set:html={getOnlineCompat(
+                  game.id,
+                  game.wifi.players,
+                  game.wifi.feature
+                ) != 1 &&
+                  getOnlineCompat(
+                    game.id,
+                    game.wifi.players,
+                    game.wifi.feature
+                  )}
+              />
+            </div>
+            <d style="bottom:20px; lext-align:left; position:absolute;">
+              {
+                game.wifi.feature &&
+                  (Array.isArray(game.wifi.feature)
+                    ? game.wifi.feature
+                    : [game.wifi.feature]
+                  ).join(" | ")
+              }
+            </d></l
+          >
+          <l
+            class="size3"
+            style="border:2px solid #dd42f520; display:flex; justify-content:center; align-items:center;"
+          >
+            <div
+              class="macremove"
+              style="color:#dd42f560; bottom:-50px; left:-20px; opacity:0.2; text-transform:uppercase; font-family:Gilroy; font-size:100px;position:absolute;"
+            >
+              Players
+            </div>
+            <b style="font-size:30px; margin-right:18px;">
+              {
+                game.type === "DS"
+                  ? game.input["players-single-cart"]
+                  : game.input.players
+              }
+            </b>
+            <b style="display:flex; flex-direction:row; gap:3px;">
+              {
+                Array.from({
+                  length:
+                    game.type === "DS"
+                      ? game.input["players-single-cart"]
+                      : game.input.players,
+                }).map((_) => <i class="fa-solid fa-user" />)
+              }
+            </b>
+          </l>
+          {
+            game.type === "DS" ? (
+              <l class="size4" style="border:2px solid #ffffff20;">
+                <div
+                  class="macremove"
+                  style="bottom:-50px; left:-20px; opacity:0.03; text-transform:uppercase; font-family:Gilroy; font-size:100px;position:absolute;"
+                >
+                  Controllers
+                </div>
+                <br />
+                <span>
+                  <img
+                    src="/img/controllers/nintendods.svg"
+                    alt="DS Controller"
+                    style="width:50px; height:auto; transform:translate(0, -10px); filter:invert(1);"
+                  />
+                </span>
+              </l>
+            ) : (
+              <l class="size4" style="border:2px solid #ffffff20;">
+                <div
+                  class="macremove"
+                  style="bottom:-50px; left:-20px; opacity:0.03; text-transform:uppercase; font-family:Gilroy; font-size:100px;position:absolute;"
+                >
+                  Controllers
+                </div>
+                <br />
+                <span
+                  set:html={(Array.isArray(game.input.control)
+                    ? game.input.control
+                    : [game.input.control]
+                  ).map((controller) => {
+                    return getController(controller);
+                  })}
+                />
+              </l>
+            )
+          }
+        </div>
+      </div>
+    </div>
 
-  <script is:inline>
+    {
+      getOnlineCompat(game.id, game.wifi.players, game.wifi.feature) == 1 && (
+        <>
+          <div id="onlinecontainer">
+            <div id="containerdata" />
+            <div style="color:#4287f5; bottom:-50px; left:-20px; opacity:0.1; text-transform:uppercase; font-family:Gilroy; font-size:100px; position:absolute;">
+              Statistics
+            </div>
+          </div>
+          <div style="width:90%;  max-width:1500px; left:50%; transform:translate(-50%, 0); display:flex; justify-content:space-between; z-index:1000; position:relative;">
+            <div
+              id="onlineSpecialInfo"
+              style="display:flex; flex-direction: row; align-items: center; gap:8px; display:none;"
+            >
+              <div
+                id="dropupcompat"
+                class="btn-group dropup"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                data-bs-title="Compatibility information"
+              >
+                <button
+                  type="button"
+                  class="btn btn-dark dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-circle-question" />
+                </button>
+                <ul
+                  id="compat"
+                  style="width:240px; padding:8px; z-index:100000; position:relative;"
+                  class="dropdown-menu"
+                />
+              </div>
+              <div id="dropup" class="btn-group dropup">
+                <button
+                  type="button"
+                  class="btn btn-success dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fa fa-download" style="margin-right:5px;" />{" "}
+                  Download patches
+                </button>
+                <ul
+                  id="downloadPatchButton"
+                  style="z-index:100000; position:relative;"
+                  class="dropdown-menu"
+                />
+              </div>
+            </div>
+            <p
+              id="powered"
+              style="text-align: right; filter:opacity(0.3) brightness(10000); display:none; position:relative;"
+            >
+              Data provided by{" "}
+              <a
+                href={`https://www.gametdb.com/wii/${gamespyId ? gamespyId : title}`}
+              >
+                GameTDB
+              </a>{" "}
+              and WiiLink Violet API.
+            </p>
+          </div>
+        </>
+      )
+    }
+    <div
+      style="width:90%; max-width:1500px; left:50%; transform:translate(-50%, 0); margin-bottom:200px; animation:fadein 200ms linear forwards; opacity:1; display:block; position:relative;"
+      id="errhide"
+    >
+      <h1 style="font-family:Gilroy; margin-top:50px; margin-bottom:20px;">
+        About the game:
+      </h1>
+      <p id="synopsis" style="font-size:20px;">
+        {
+          game.locale.synopsis
+            ? game.locale.synopsis
+            : "No synopsis available. You can help by submitting one to GameTDB!"
+        }
+      </p>
+    </div>
+  </div>
+  <Footer />
+
+  <span id="onlineCompat" style="display: none;">
+    {getOnlineCompat(game.id, game.wifi.players, game.wifi.feature)}
+  </span>
+
+  <script type="module">
+    import { getPreferredStyle } from "/js/helper_functions.js";
+    import { onlineUpdater } from "/js/online_updater.js";
+
     window.addEventListener("scroll", function () {
       const mainDiv = document.getElementById("herobg");
       const scrollPos = document.documentElement.scrollTop;
@@ -199,11 +438,13 @@ const { title, text, gamespyId } = Astro.props;
         },
         function (err) {
           console.error("Could not copy text: ", err);
-        },
+        }
       );
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+      getPreferredStyle();
+
       var isSafari =
         /WebKit/.test(navigator.userAgent) &&
         !/Chrome/.test(navigator.userAgent);
@@ -215,6 +456,15 @@ const { title, text, gamespyId } = Astro.props;
             elements[i].innerHTML = "";
           }
         }, 300);
+      }
+
+      const onlineCompat = document.getElementById("onlineCompat").innerText;
+      const gamespyId = document.getElementById("gamespyId").innerText;
+      if (parseInt(onlineCompat) == 1) {
+        onlineUpdater(gamespyId);
+        setInterval(function () {
+          onlineUpdater(gamespyId);
+        }, 30000);
       }
     });
 

@@ -16,14 +16,14 @@ export function onlineUpdater(data) {
     .then((response) => response.json())
     .then((isOnline) => {
       // Check if the game has people online
-      if (isOnline[data.gameId] == undefined) {
+      if (isOnline[data] == undefined) {
         document.getElementById("WFCdetails").innerHTML = `
                <i class="fa fa-triangle-exclamation" style="margin-right:5px;"></i> There seems to be nobody around...
            `;
       } else {
         if (
-          isOnline[data.gameId].active < 2 ||
-          isOnline[data.gameId].online == undefined
+          isOnline[data].active < 2 ||
+          isOnline[data].online == undefined
         ) {
           document.getElementById("onlinecontainer").style.display = "none";
         }
@@ -31,19 +31,19 @@ export function onlineUpdater(data) {
                <div style="display:flex; flex-direction:row; gap:30px; width:100%;">
                    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%;">
                        <div style="font-size: 40px; font-family: Rubik; font-weight:800; color:white;">${
-                         isOnline[data.gameId].online
+                         isOnline[data].online
                        }</div>
                        <div style="font-size: 15px; font-family: Rubik; color:white;"><i class="fa-solid fa-user" style="margin-right:5px;"></i> online</div>
                    </div>
                    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%;">
                        <div style="font-size: 40px; font-family: Rubik; font-weight:800; color:white;">${
-                         isOnline[data.gameId].active
+                         isOnline[data].active
                        }</div>
                        <div style="font-size: 15px; font-family: Rubik; color:white;"><i class="fa-solid fa-gamepad" style="margin-right:5px;"></i> active</div>
                    </div>
                    <div style="display:flex; flex-direction:column; justify-content:center; align-items:center; width:100%;">
                        <div style="font-size: 40px; font-family: Rubik; font-weight:800; color:white;">${
-                         isOnline[data.gameId].groups
+                         isOnline[data].groups
                        }</div>
                        <div style="font-size: 15px; font-family: Rubik; color:white;"><i class="fa-solid fa-users-rays" style="margin-right:5px;"></i> groups</div>
                    </div>
@@ -59,7 +59,7 @@ export function onlineUpdater(data) {
       var playerData = "";
       var roomStats = "";
       for (let k = 0; k < group.length; k++) {
-        if (group[k].game == data.gameId) {
+        if (group[k].game == data) {
           // Check for online groups in the specific game
           switch (group[k].type) {
             case "anybody":
@@ -80,7 +80,7 @@ export function onlineUpdater(data) {
             var hostName = `<i class='fa fa-circle-question' style='margin-bottom:18px;'></i> Awaiting host...`;
           }
 
-          if (data.gameId == "mariokartwii") {
+          if (data == "mariokartwii") {
             // MKW exclusive data
             // Add fallback in case server does not return rk data
             group[k].rk = group[k].rk || "unknown";
@@ -136,6 +136,10 @@ export function onlineUpdater(data) {
           for (let playerIndex in group[k].players) {
             var player = group[k].players[playerIndex];
             // Loop through each player and fetch its corresponding data depening on wether they are a guest or not, and the user personalization preferences
+            if (player.count > 4) {
+              player.count = 4;
+              console.log("Intrusion detected, limiting player count to 4");
+            }
             for (let i = 0; i < player.count; i++) {
               let miiData = "0000000000000000";
               let miiName = "Guest";
@@ -277,7 +281,7 @@ export function onlineUpdater(data) {
         document.getElementById("containerdata").innerHTML = playerData;
         document.getElementById("containerdata").innerHTML +=
           '<hr><div style="text-align:right;"><i class="fa fa-fingerprint" style="margin-right:5px;"></i>' +
-          data.gameId +
+          data +
           "</div>";
       }
     });
