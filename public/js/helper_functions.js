@@ -364,10 +364,10 @@ export function getController(controller) {
       case "mii":
         break;
       default:
-        return '<img src="/img/controllers/nintendods.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px">';
+        return '<img src="/img/controllers/nintendods.svg" alt="DS Controller" style="width:50px; height:auto; transform:translate(0, -10px); filter:invert(1);"/>';
     }
   } else {
-    return '<img src="/img/controllers/nintendods.svg" style="margin-right:15px; filter:brightness(1000); transform:translate(-150%, 0px);" height="60px">';
+    return '<img src="/img/controllers/nintendods.svg" alt="DS Controller" style="width:50px; height:auto; transform:translate(0, -10px); filter:invert(1);"/>';
   }
 }
 
