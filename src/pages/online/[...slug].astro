@@ -61,27 +61,6 @@ export async function getStaticPaths() {
 }
 let { title, text, gamespyId } = Astro.props;
 
-// Fetch compatibility data during build
-const compatData = game.patchId
-  ? await fetchCompatData(game.patchId[0].substring(0, 3))
-  : null;
-
-// Map compatibility statuses to icons and colors
-function getCompatStatus(status) {
-  switch (status) {
-    case "Not tested":
-      return `<i class='fa fa-circle-question' style='color:gray;'></i> ${status}`;
-    case "Gameplay works":
-      return `<i class='fa fa-circle-check' style='color:green;'></i> ${status}`;
-    case "Login fail":
-      return `<i class='fa fa-circle-exclamation' style='color:red;'></i> ${status}`;
-    case "Error 20910":
-      return `<i class='fa fa-circle-exclamation' style='color:red;'></i> ${status}`;
-    default:
-      return `<i class='fa fa-circle-question' style='color:gray;'></i> ${status}`;
-  }
-}
-
 // Merge the "games" json with the "game" json if patchId exists on the pages.json for the game (we need to match game.id with gameId on the pages.json), if patches exist, we will add them to the game object in the wi-fi object as "patches"
 if (game) {
   const titlestuff = games.find((game) => game.gameId === title).gameId;
@@ -390,38 +369,28 @@ const imageHQUrl =
               id="onlineSpecialInfo"
               style="display:flex; flex-direction: row; align-items: center; gap:8px;"
             >
-              {compatData && compatData.length > 0 && (
-                <div
-                  id="dropupcompat"
-                  class="btn-group dropup"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="bottom"
-                  data-bs-title="Compatibility information"
+              <div
+                id="dropupcompat"
+                class="btn-group dropup"
+                data-bs-toggle="tooltip"
+                data-bs-placement="bottom"
+                data-bs-title="Compatibility information"
+                style="display: none;"
+              >
+                <button
+                  type="button"
+                  class="btn btn-dark dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  <button
-                    type="button"
-                    class="btn btn-dark dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i class="fa fa-circle-question" />
-                  </button>
-                  <ul
-                    id="compat"
-                    style="width:240px; padding:8px; z-index:100000; position:relative;"
-                    class="dropdown-menu"
-                  >
-                    {compatData.map((data) => (
-                      <li>
-                        <center set:html={getCompatStatus(data[1])} />
-                        <div style="width:100%; margin-top:8px; padding:8px; background-color:#00000020; border-radius:4px; position:relative;">
-                          {data[2]}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                  <i class="fa fa-circle-question"></i>
+                </button>
+                <ul
+                  id="compat"
+                  style="width:240px; padding:8px; z-index:100000; position:relative;"
+                  class="dropdown-menu"
+                ></ul>
+              </div>
               {game.patchId && game.patchId.length > 0 && (
                 <div id="dropup" class="btn-group dropup">
                   <button
@@ -441,14 +410,14 @@ const imageHQUrl =
                     >
                       {game.type === "DS" ? (
                         // Show a warning for DS games
-                        <div style="width:90%; max-width:1500px; left:50%; transform:translate(-50%, 0); margin-bottom:20px; padding:20px; background-color:#ffcc00; color:black; border-radius:8px; border:2px solid #ffaa00; text-align:center; font-family:Gilroy; font-size:18px;">
+                        <span style="width: 300px; margin-left:18px; margin-right:18px; display:block; position:relative;">
                           <i
                             class="fa fa-exclamation-triangle"
                             style="margin-right:8px;"
                           />
-                          This game only requires a change in DNS settings to
+                          This game (and all DS games) only requires a change in DNS settings to
                           work. No additional patches are needed.
-                        </div>
+                        </span>
                       ) : Array.isArray(game.patchId) &&
                         game.patchId.length > 0 ? (
                         game.patchId.map((patch) => {
@@ -476,7 +445,7 @@ const imageHQUrl =
                           }
 
                           return (
-                            <li style="cursor:pointer; display:flex; flex-direction:row; align-items:center; gap:8px; padding:8px; color:black;">
+                            <li style="cursor:pointer; display:flex; flex-direction:row; align-items:center; gap:8px; padding:6px; border-radius:8px; color:black;">
                               <div
                                 class="dropdown-item"
                                 style="display:flex; gap:8px; flex-direction:row; justify-content:space-between;"
@@ -523,6 +492,14 @@ const imageHQUrl =
                         </span>
                       )}
                       <hr style="margin:8px 0;" />
+                      {
+                        game.gameId === 'mariokartwii' && (
+                          <button style="width:calc(100% - 12px); margin:6px; padding:6px; background-color:rgb(58, 170, 48); color:white !important; border:0px; border-radius:8px; position:relative;" onclick="openDNSInstructions();">
+                            DNS Patching Guide
+                          </button>
+                          <hr style="margin:8px 0;" />
+                        )
+                      }
                       <li style="transform:translate(15px, 0); margin-top:5px; font-size:15px; opacity:0.5;">
                         <i class="fa fa-circle-info" /> These patches are{" "}
                         <u>gecko codes</u>
@@ -571,7 +548,8 @@ const imageHQUrl =
     {getOnlineCompat(game.id, game.wifi.players, game.wifi.feature)}
   </span>
 
-  <script type="module">
+  <script type="module" define:vars={{ game }}>
+    import { fetchCompatData } from "../../../dist/js/helper_functions";
     import { getPreferredStyle } from "/js/helper_functions.js";
     import { onlineUpdater } from "/js/online_updater.js";
 
@@ -617,6 +595,70 @@ const imageHQUrl =
         }, 30000);
       }
     });
+
+    function getCompatStatus(status) {
+  switch (status) {
+    case "Not tested":
+      return `<i class='fa fa-circle-question' style='color:gray;'></i> ${status}`;
+    case "Gameplay works":
+      return `<i class='fa fa-circle-check' style='color:green;'></i> ${status}`;
+    case "Login fail":
+      return `<i class='fa fa-circle-exclamation' style='color:red;'></i> ${status}`;
+    case "Error 20910":
+      return `<i class='fa fa-circle-exclamation' style='color:red;'></i> ${status}`;
+    case "Fully working":
+      return `<i class='fa fa-circle-check' style='color:green;'></i> ${status}`;
+    default:
+      return `<i class='fa fa-circle-question' style='color:gray;'></i> ${status}`;
+  }
+}
+
+    // Function to render compatibility data
+    function renderCompatData(compatData) {
+      const dropupCompat = document.getElementById("dropupcompat");
+      const compatList = document.getElementById("compat");
+
+      if (compatData && compatData.length > 0) {
+        // Show the dropdown if there is compatibility data
+        dropupCompat.style.display = "block";
+
+        // Clear existing content
+        compatList.innerHTML = "";
+
+        // Populate the compatibility data
+        compatData.forEach((data) => {
+          const listItem = document.createElement("li");
+
+          // Add the status icon and text
+          const status = document.createElement("center");
+          status.innerHTML = getCompatStatus(data[1]);
+          listItem.appendChild(status);
+
+          // Add the description
+          const description = document.createElement("div");
+          description.style =
+            "width:100%; margin-top:8px; padding:8px; background-color:#00000010; border-radius:4px; position:relative;";
+          description.textContent = data[2];
+          listItem.appendChild(description);
+
+          compatList.appendChild(listItem);
+        });
+      }
+    }
+
+    async function loadCompatData() {
+    try {
+      const compatData = await fetchCompatData(game.id.substring(0,3));
+
+      renderCompatData(compatData);
+    } catch (error) {
+      console.error("Error loading compatibility data:", error);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    loadCompatData();
+  });
   </script>
 
   <script is:inline>
