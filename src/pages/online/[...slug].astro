@@ -1,5 +1,4 @@
 ---
-export const prerender = true;
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -121,13 +120,15 @@ if (game) {
         id="img"
         style="animation: fadein 200ms ease-in-out forwards; opacity: 0;"
       >
-        <div class="coverimg">
+        <div class={`${game.type === "DS" ? "dscoverimg" : "coverimg"}`}>
           <img
             src={game.type === "DS"
               ? `https://art.gametdb.com/ds/coverfullHQ/US/${game.id}.jpg`
               : loadImage("coverfullHQ", game.id)}
             alt={game.locale.title + " Game Boxart"}
-            class="imginner"
+            class={`${
+              game.type === "DS" ? "dsimginner" : "imginner"
+            }`}
             onerror="this.style.display='none';"
           />
         </div>
@@ -654,6 +655,18 @@ if (game) {
       box-shadow: 0px 0px 20px 0px #ffffff10;
       transition: 0.3s;
     }
+    .dscoverimg {
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      height: 300px;
+      aspect-ratio: 1/1;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0px 0px 20px 0px #ffffff30;
+      position: relative;
+    }
     li span:hover {
       background-color: #00000030 !important;
       transition: 0.1s;
@@ -716,6 +729,14 @@ if (game) {
       transition: 0.5s;
       overflow: hidden;
     }
+    .dsimginner {
+      height: 300px;
+      aspect-ratio: 20/9.3;
+      transform: translate(-53.1%, 0);
+      color: white;
+      transition: 0.5s;
+      overflow: hidden;
+    }
     l {
       height: 100%;
       background-color: #151414d8;
@@ -769,6 +790,10 @@ if (game) {
       transition: 0.5s;
     }
 
+    .dscoverimg:hover .dsimginner {
+      transform: translate(-0.7%, 0);
+      transition: 0.5s;
+    }
     @media only screen and (max-width: 1500px) {
       .genre {
         grid-column: auto / span 6 !important;

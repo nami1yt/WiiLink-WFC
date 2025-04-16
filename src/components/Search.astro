@@ -1,83 +1,23 @@
 <div
-  style=" width:calc(100% + 53px); display:flex; align-items:center; justify-content:center; flex-direction:row;"
+  style="left:0; width:calc(100% + 53px); display:flex; align-items:center; justify-content:center; flex-direction:row; position:relative;"
 >
   <input
     type="text"
     id="game-search-online"
-    placeholder="   Search for any Wii title..."
+    placeholder="   Search for any title..."
     style="font-family:system-ui, FontAwesome"
   />
-  <input type="checkbox" id="onlineOnly" style="display: none;" />
-  <label
-    for="onlineOnly"
-    style="right:0; transform:translate(-45px, 0); z-index:100000000; position:relative;"
-  >
-    <i class="fa-solid fa-earth-americas"></i>
-  </label>
 </div>
 <div id="suggestions-online"></div>
 
 <script type="module" src="/js/helper_functions.js"></script>
 <script type="module" is:inline>
   import { loadImage } from "/js/helper_functions.js";
-  var gameSearchInput = document.getElementById("game-search-online");
-  var suggestionsDiv = document.getElementById("suggestions-online");
-  var onlineFilterButton = document.getElementById("onlineOnly");
+  const gameSearchInput = document.getElementById("game-search-online");
+  const suggestionsDiv = document.getElementById("suggestions-online");
 
-  document.getElementById("onlineOnly").addEventListener("change", function () {
-    var icon = document.querySelector("#onlineOnly + label i");
-    if (this.checked) {
-      icon.className = "fa-solid fa-check-circle";
-      fetchQuery();
-      setTimeout(function () {
-        suggestionsDiv.style.visibility = "visible";
-        suggestionsDiv.style.maxHeight = "618px";
-        suggestionsDiv.style.overflowY = "scroll";
-        gameSearchInput.focus();
-      }, 500);
-      setTimeout(function () {
-        icon.className = "fa-solid fa-earth-americas";
-      }, 500);
-    } else {
-      icon.className = "fa-solid fa-circle-xmark";
-      fetchQuery();
-      setTimeout(function () {
-        suggestionsDiv.style.visibility = "visible";
-        suggestionsDiv.style.maxHeight = "618px";
-        suggestionsDiv.style.overflowY = "scroll";
-        gameSearchInput.focus();
-      }, 500);
-      setTimeout(function () {
-        icon.className = "fa-solid fa-earth-americas";
-      }, 500);
-    }
-  });
-
-  gameSearchInput.addEventListener("focus", function (e) {
-    suggestionsDiv.style.visibility = "visible";
-    suggestionsDiv.style.maxHeight = "618px";
-    setTimeout(function () {
-      suggestionsDiv.style.overflowY = "scroll";
-    }, 200);
-  });
-
-  gameSearchInput.addEventListener("blur", function (e) {
-    setTimeout(function () {
-      if (suggestionsDiv.contains(document.activeElement)) {
-        return;
-      }
-      suggestionsDiv.style.maxHeight = "0px";
-      suggestionsDiv.style.overflowY = "hidden";
-      setTimeout(function () {
-        suggestionsDiv.style.visibility = "hidden";
-      }, 200);
-    }, 0);
-  });
-
-  gameSearchInput.addEventListener("input", function (e) {
-    setTimeout(function () {
-      fetchQuery();
-    }, 500);
+  gameSearchInput.addEventListener("input", function () {
+    fetchQuery();
   });
 
   gameSearchInput.addEventListener("keydown", function (e) {
@@ -90,106 +30,119 @@
     }
   });
 
-  function fetchQuery() {
-    const gamesPromise = fetch("../../json/pages.json").then((response) =>
-        response.json(),
-    );
+  // Hide suggestions when the input loses focus
+  gameSearchInput.addEventListener("blur", function () {
+    setTimeout(() => {
+      suggestionsDiv.style.maxHeight = "0px";
+      suggestionsDiv.style.visibility = "hidden";
+      suggestionsDiv.style.overflowY = "hidden";
+      suggestionsDiv.style.transition =
+        "max-height 0.3s ease, visibility 0.3s ease";
+    }, 200); // Delay to allow clicks on suggestions
+  });
 
-    Promise.all([gamesPromise])
-        .then(([games]) => {
-            const gameSearchInput = document.getElementById("game-search-online");
-            const suggestionsDiv = document.getElementById("suggestions-online");
-            const inputText = gameSearchInput.value.trim().toLowerCase();
-            const onlineOnly = document.getElementById("onlineOnly").checked;
-            let counter = 0;
-            let suggestionsHTML = "";
+  // Show suggestions when the input gains focus
+  gameSearchInput.addEventListener("focus", function () {
+    if (suggestionsDiv.innerHTML.trim() !== "") {
+      suggestionsDiv.style.maxHeight = "500px";
+      suggestionsDiv.style.visibility = "visible";
+      suggestionsDiv.style.overflowY = "auto";
+      suggestionsDiv.style.transition =
+        "max-height 0.3s ease, visibility 0.3s ease";
+    }
+  });
 
-            for (const game of games) {
-                const isFound = game.gamespyId;
-                const gameName = game.gameName.toLowerCase();
-                const gameId = game.gameId.toLowerCase();
-                const matchesExactPhrase = gameName.includes(inputText) || gameId.includes(inputText);
+  async function fetchQuery() {
+    const inputText = gameSearchInput.value.trim().toLowerCase();
+    if (!inputText) {
+      suggestionsDiv.innerHTML = "";
+      suggestionsDiv.style.maxHeight = "0px";
+      suggestionsDiv.style.visibility = "hidden";
+      suggestionsDiv.style.overflowY = "hidden";
+      return;
+    }
 
-                if (matchesExactPhrase && (!onlineOnly || isFound)) {
-                    const discImage = game.gamespyId ? game.gamespyId : game.gameId;
-                    let onlineFeatures = "";
-                    let gamespyId = "";
-                    let region = game.gameId.substring(3, 4).toUpperCase();
-                    switch (region) {
-                        case "E":
-                            region =
-                                "<span class='badge bg-primary' style='font-style: normal;'>NTSC</span> ";
-                            break;
-                        case "P":
-                            region =
-                                "<span class='badge bg-success' style='font-style: normal;'>PAL</span> ";
-                            break;
-                        case "J":
-                            region =
-                                "<span class='badge bg-danger' style='font-style: normal;'>NTSC-J</span> ";
-                            break;
-                        case "K":
-                            region =
-                                "<span class='badge bg-warning' style='font-style: normal;'>NTSC-K</span> ";
-                            break;
-                        default:
-                            region = "";
-                            break;
-                    }
+    try {
+      const response = await fetch("../../json/pages.json");
+      const games = await response.json();
 
-                    if (game.gamespyId) {
-                        onlineFeatures +=
-                            '<i class="fa-solid fa-earth-americas" style=" padding:5px; padding-left:10px; padding-right:10px; background-color:#3c86c7; border-radius:4px; font-size:15px;º"></i>';
-                        gamespyId = " | " + game.gamespyId;
-                    }
+      const filteredGames = games.filter((game) => {
+        const isWii = game.gamespyId?.length === 6;
+        const isDS = game.gamespyId?.length === 4;
+        const matchesSearch =
+          game.gameName.toLowerCase().includes(inputText) ||
+          game.gameId?.toLowerCase().includes(inputText);
 
-                    suggestionsHTML += `
-                        <a href="/online/${game.gameId}" id="suggestionitem" style="width:95%; height:100px; margin:10px; border-radius:8px; color:white; text-decoration:none; display:flex; align-items:center; justify-content:space-between; flex-direction:row; overflow:hidden; position:relative;">
-                            <img src="${loadImage("cover", discImage)}" onerror="this.onerror=null; this.src='/img/disc_placeholder.png';" style="filter:blur(8px) opacity(0.1); position:absolute;" width="100%">
-                            <img src="${loadImage("disc", discImage)}" onerror="this.onerror=null; this.src='/img/disc_placeholder.png';" style="margin-left:20px; margin-right:15px;" width="70px"><div style="width:70%; margin-right:20px; font-size:30px; white-space:nowrap; text-overflow:ellipsis; line-height:30px; text-align:right; overflow:hidden;">${game.gameName}<br><i style="display:flex; align-items:center; justify-content:end; gap:10px; font-size:20px; opacity:0.7;">${onlineFeatures}${region}${game.gameId}${gamespyId}</i></div></a>`;
-                    counter++;
-                }
-                if (counter >= 5) {
-                    break;
-                }
-            }
-            if (counter === 0) {
-                suggestionsHTML =
-                    "<center style='margin-top:18px; font-size:48px; color:white;'><i class='fa fa-heart-broken'></i><br><p style='font-size:28px;'>No results found</p><p style='width:70%; font-size:18px; transform:translate(0, -10px); opacity:0.7;'>Try making an exact search quoting (&quot; &quot;) your query, or searching by gameID.</p></center>";
-            }
+        return matchesSearch && (isWii || isDS);
+      });
 
-            suggestionsDiv.innerHTML = suggestionsHTML;
-        })
-        .catch((error) => {
-            console.error("Error fetching data:", error);
-        });
-}
+      renderSuggestions(filteredGames);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  function renderSuggestions(games) {
+    if (games.length === 0) {
+      suggestionsDiv.innerHTML =
+        "<center style='margin-top:18px; font-size:48px; color:white;'><i class='fa fa-heart-broken'></i><br><p style='font-size:28px;'>No results found</p><p style='width:70%; font-size:18px; transform:translate(0, -10px); opacity:0.7;'>Try making an exact search quoting (&quot; &quot;) your query, or searching by gameID.</p></center>";
+      suggestionsDiv.style.maxHeight = "500px";
+      suggestionsDiv.style.visibility = "visible";
+      suggestionsDiv.style.overflowY = "auto";
+      suggestionsDiv.style.transition =
+        "max-height 0.3s ease, visibility 0.3s ease";
+      return;
+    }
+
+    const suggestionsHTML = games
+      .slice(0, 10) // Limit to 10 results for performance
+      .map((game) => {
+        const discImage = game.gamespyId || game.gameId;
+        const region = getRegionBadge(game.gameId);
+
+        return `
+          <a href="/online/${game.gameId}" id="suggestionitem" style="width:95%; height:100px; margin:10px; border-radius:8px; color:white; text-decoration:none; display:flex; align-items:center; justify-content:space-between; flex-direction:row; overflow:hidden; position:relative;">
+            <img src="${loadImage("cover", discImage)}" onerror="this.onerror=null; this.src='/img/disc_placeholder.png';" style="filter:blur(8px) opacity(0.1); position:absolute;" width="100%">
+            <img src="${loadImage("disc", discImage)}" onerror="this.onerror=null; this.src='/img/disc_placeholder.png';" style="margin-left:20px; margin-right:15px; border-radius:8px;" width="70px;">
+            <div style="width:70%; margin-right:20px; font-size:30px; white-space:nowrap; text-overflow:ellipsis; line-height:30px; text-align:right; overflow:hidden;">
+              ${game.gameName}<br>
+              <i style="display:flex; align-items:center; justify-content:end; gap:10px; font-size:20px; opacity:0.7;">
+                ${region}${game.gameId} | ${game.gamespyId}
+              </i>
+            </div>
+          </a>`;
+      })
+      .join("");
+
+    suggestionsDiv.innerHTML = suggestionsHTML;
+    suggestionsDiv.style.maxHeight = "500px";
+    suggestionsDiv.style.visibility = "visible";
+    suggestionsDiv.style.overflowY = "auto";
+    suggestionsDiv.style.transition =
+      "max-height 0.3s ease, visibility 0.3s ease";
+  }
+
+  function getRegionBadge(gameId) {
+    const regionCode = gameId.substring(3, 4).toUpperCase();
+    switch (regionCode) {
+      case "E":
+        return "<span class='badge bg-primary' style='font-style: normal;'>NTSC</span> ";
+      case "P":
+        return "<span class='badge bg-success' style='font-style: normal;'>PAL</span> ";
+      case "J":
+        return "<span class='badge bg-danger' style='font-style: normal;'>NTSC-J</span> ";
+      case "K":
+        return "<span class='badge bg-warning' style='font-style: normal;'>NTSC-K</span> ";
+      default:
+        return "";
+    }
+  }
 </script>
 
 <style>
-  #onlineOnly:checked + label {
-    background-color: #3c86c7;
-    opacity: 1;
-    transition: 0.3s;
-  }
-  label {
-    display: inline-block;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: white;
-    border-radius: 4px;
-    font-size: 15px;
-    margin-right: 18px;
-    background-color: #ffffff00;
-    opacity: 0.5;
-    transition: 0.3s;
-  }
-  label:hover {
-    opacity: 1;
-    transition: 0.3s;
-  }
   #game-search-online {
-    width: 100%;
+    width: calc(100% - 53px);
+    transform: translate(-26.5px, 0);
     height: 50px;
     padding: 10px;
     border-radius: 8px;
@@ -226,6 +179,6 @@
     visibility: hidden;
     overflow-y: hidden;
     position: absolute;
-    transition: 0.2s;
+    transition: max-height 0.3s ease, visibility 0.3s ease;
   }
 </style>

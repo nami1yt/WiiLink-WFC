@@ -136,23 +136,60 @@ export async function fetchCompatData(id) {
 
 // Loads the correct GameTDB URL image depending on the region of the game
 export function loadImage(format, title) {
-  switch (title.charAt(3)) {
-    case "E":
-      return "https://art.gametdb.com/wii/" + format + "/US/" + title + ".png";
-    case "P":
-    case "D":
-    case "H":
-    case "X":
-    case "Y":
-    case "F":
-      return "https://art.gametdb.com/wii/" + format + "/EN/" + title + ".png";
-    case "J":
-      return "https://art.gametdb.com/wii/" + format + "/JA/" + title + ".png";
-    case "K":
-      return "https://art.gametdb.com/wii/" + format + "/KO/" + title + ".png";
-    default:
-      return "/img/disc_placeholder.png";
+  const wiiUrl = (() => {
+    switch (title.charAt(3)) {
+      case "E":
+        return `https://art.gametdb.com/wii/${format}/US/${title}.png`;
+      case "P":
+      case "D":
+      case "H":
+      case "X":
+      case "Y":
+      case "F":
+        return `https://art.gametdb.com/wii/${format}/EN/${title}.png`;
+      case "J":
+        return `https://art.gametdb.com/wii/${format}/JA/${title}.png`;
+      case "K":
+        return `https://art.gametdb.com/wii/${format}/KO/${title}.png`;
+      default:
+        return null;
+    }
+  })();
+
+  let type;
+  switch (format) {
+    case "cover":
+      type="coverfullHQ";
+      break;
+    case "disc":
+      type="cover";
+      break;
   }
+
+  const dsUrl = (() => {
+    switch (title.charAt(3)) {
+      case "E":
+        return `https://art.gametdb.com/ds/${type}/US/${title}.jpg`;
+      case "P":
+      case "D":
+      case "H":
+      case "X":
+      case "Y":
+      case "F":
+        return `https://art.gametdb.com/ds/${type}/EN/${title}.jpg`;
+      case "J":
+        return `https://art.gametdb.com/ds/${type}/JA/${title}.jpg`;
+      case "K":
+        return `https://art.gametdb.com/ds/${type}/KO/${title}.jpg`;
+      default:
+        return null;
+    }
+  })();
+
+  // Return a fallback mechanism for the image
+  return wiiUrl
+    ? `${wiiUrl}" onerror="this.onerror=null;this.src='${dsUrl}'`
+    : `${dsUrl}`;
 }
 
 // Obtains an accompanying icon for the genre of the game
