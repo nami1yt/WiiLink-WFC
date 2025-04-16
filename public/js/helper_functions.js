@@ -134,6 +134,84 @@ export async function fetchCompatData(id) {
   }
 }
 
+export async function loadPrerenderImage(format, title) {
+  const wiiUrl = (() => {
+    switch (title.charAt(3)) {
+      case "E":
+        return `https://art.gametdb.com/wii/${format}/US/${title}.png`;
+      case "P":
+      case "D":
+      case "H":
+      case "X":
+      case "Y":
+      case "F":
+        return `https://art.gametdb.com/wii/${format}/EN/${title}.png`;
+      case "J":
+        return `https://art.gametdb.com/wii/${format}/JA/${title}.png`;
+      case "K":
+        return `https://art.gametdb.com/wii/${format}/KO/${title}.png`;
+      default:
+        return null;
+    }
+  })();
+
+  let type;
+  switch (format) {
+    case "cover":
+      type = "coverfullHQ";
+      break;
+    case "disc":
+      type = "cover";
+      break;
+  }
+
+  const dsUrl = (() => {
+    switch (title.charAt(3)) {
+      case "E":
+        return `https://art.gametdb.com/ds/${type}/US/${title}.jpg`;
+      case "P":
+      case "D":
+      case "H":
+      case "X":
+      case "Y":
+      case "F":
+        return `https://art.gametdb.com/ds/${type}/EN/${title}.jpg`;
+      case "J":
+        return `https://art.gametdb.com/ds/${type}/JA/${title}.jpg`;
+      case "K":
+        return `https://art.gametdb.com/ds/${type}/KO/${title}.jpg`;
+      default:
+        return null;
+    }
+  })();
+
+  const fallbackUrl = `/img/disc_placeholder.png`;
+
+  try {
+    // Try fetching the Wii image
+    const wiiResponse = await fetch(wiiUrl);
+    if (wiiResponse.ok) {
+      console.log("Wii image found");
+      return wiiUrl;
+    }
+
+    // If Wii image fails, try fetching the DS image
+    const dsResponse = await fetch(dsUrl);
+    if (dsResponse.ok) {
+      console.log("DS image found");
+      return dsUrl;
+    }
+
+    // If both fail, return the fallback image
+    console.warn("Both Wii and DS images failed, using fallback");
+    return fallbackUrl;
+  } catch (error) {
+    console.error("Error fetching images:", error);
+    return fallbackUrl; // Return fallback in case of network errors
+  }
+}
+
+
 // Loads the correct GameTDB URL image depending on the region of the game
 export function loadImage(format, title) {
   const wiiUrl = (() => {
@@ -159,10 +237,10 @@ export function loadImage(format, title) {
   let type;
   switch (format) {
     case "cover":
-      type="coverfullHQ";
+      type = "coverfullHQ";
       break;
     case "disc":
-      type="cover";
+      type = "cover";
       break;
   }
 
@@ -186,10 +264,12 @@ export function loadImage(format, title) {
     }
   })();
 
-  // Return a fallback mechanism for the image
+  const fallbackStyle = "this.style.opacity='0';";
+
+  // Return the image URL with proper fallback handling
   return wiiUrl
-    ? `${wiiUrl}" onerror="this.onerror=null;this.src='${dsUrl}'`
-    : `${dsUrl}`;
+    ? `${wiiUrl}" onerror="this.onerror=null;this.src='${dsUrl}';${fallbackStyle}"`
+    : `${dsUrl}" onerror="this.onerror=null;${fallbackStyle}"`;
 }
 
 // Obtains an accompanying icon for the genre of the game

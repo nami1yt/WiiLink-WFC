@@ -9,7 +9,7 @@ import {
   getIconForGenre,
   getRating,
   getController,
-  loadImage,
+  loadPrerenderImage,
   fetchCompatData,
   getOnlineCompat,
 } from "../../../public/js/helper_functions.js";
@@ -68,6 +68,17 @@ if (game) {
     });
   }
 }
+
+// Resolve the image URL before rendering
+const imageUrl =
+  game.type === "DS"
+    ? `https://art.gametdb.com/ds/coverHQ/US/${game.id}.jpg`
+    : await loadPrerenderImage("disc", game.id);
+
+const imageHQUrl =
+  game.type === "DS"
+    ? `https://art.gametdb.com/ds/coverfullHQ/US/${game.id}.jpg`
+    : await loadPrerenderImage("coverfullHQ", game.id);
 ---
 
 <Layout
@@ -81,7 +92,7 @@ if (game) {
   <div class="herobg" id="herobg">
     <div class="bginner">
       <img
-        src={loadImage("coverfullHQ", game.id)}
+        src={imageHQUrl}
         alt={game.locale.title + " Background"}
         style="margin-right:15px;"
         width="100%"
@@ -97,13 +108,10 @@ if (game) {
         style="margin-bottom:38px; width:900px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; display:flex; flex-direction:row; align-items:center; gap:8px;"
       >
         <img
-          src={game.type === "DS"
-            ? `https://art.gametdb.com/ds/coverHQ/US/${game.id}.jpg`
-            : loadImage("disc", game.id)}
+          src={imageUrl}
           alt={game.locale.title + " Game Disc"}
           style="margin-right:15px; border-radius:8px;"
           width="70px"
-          onerror="this.onerror=null; this.src='/img/disc_placeholder.png';"
         />
         <span>
           <b>{game.locale.title}</b>
@@ -122,13 +130,9 @@ if (game) {
       >
         <div class={`${game.type === "DS" ? "dscoverimg" : "coverimg"}`}>
           <img
-            src={game.type === "DS"
-              ? `https://art.gametdb.com/ds/coverfullHQ/US/${game.id}.jpg`
-              : loadImage("coverfullHQ", game.id)}
+            src={imageHQUrl}
             alt={game.locale.title + " Game Boxart"}
-            class={`${
-              game.type === "DS" ? "dsimginner" : "imginner"
-            }`}
+            class={`${game.type === "DS" ? "dsimginner" : "imginner"}`}
             onerror="this.style.display='none';"
           />
         </div>
@@ -656,9 +660,9 @@ if (game) {
       transition: 0.3s;
     }
     .dscoverimg {
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       height: 300px;
       aspect-ratio: 1/1;
       border-radius: 8px;
