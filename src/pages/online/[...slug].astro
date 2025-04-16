@@ -441,15 +441,16 @@ const imageHQUrl =
                     >
                       {game.type === "DS" ? (
                         // Show a warning for DS games
-                        <span style="width:300px; margin-left:18px; margin-right:18px; position:relative; display:block;">
+                        <div style="width:90%; max-width:1500px; left:50%; transform:translate(-50%, 0); margin-bottom:20px; padding:20px; background-color:#ffcc00; color:black; border-radius:8px; border:2px solid #ffaa00; text-align:center; font-family:Gilroy; font-size:18px;">
                           <i
                             class="fa fa-exclamation-triangle"
                             style="margin-right:8px;"
                           />
                           This game only requires a change in DNS settings to
                           work. No additional patches are needed.
-                        </span>
-                      ) : (
+                        </div>
+                      ) : Array.isArray(game.patchId) &&
+                        game.patchId.length > 0 ? (
                         game.patchId.map((patch) => {
                           let patchRegion = "Unknown";
                           let patchEmoji = "🌍";
@@ -512,6 +513,14 @@ const imageHQUrl =
                             </li>
                           );
                         })
+                      ) : (
+                        <span style="width:300px; margin-left:18px; margin-right:18px; position:relative; display:block;">
+                          <i
+                            class="fa fa-exclamation-triangle"
+                            style="margin-right:8px;"
+                          />
+                          No patches available for this game.
+                        </span>
                       )}
                       <hr style="margin:8px 0;" />
                       <li style="transform:translate(15px, 0); margin-top:5px; font-size:15px; opacity:0.5;">
