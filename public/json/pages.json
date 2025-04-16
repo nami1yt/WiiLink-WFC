@@ -10,7 +10,10 @@
   {
     "gameName": "Pro Evolution Soccer 2009",
     "patchId": [
-      "R2WED00"
+      "R2WED00",
+      "R2WJD00",
+      "R2WPD00",
+      "R2WXD00"
     ],
     "gamespyId": "R2WEA4",
     "gameId": "weleplay09wii"
@@ -18,7 +21,9 @@
   {
     "gameName": "Samba de Amigo",
     "patchId": [
-      "R3BED00"
+      "R3BED00",
+      "R3BJD00",
+      "R3BPD00"
     ],
     "gamespyId": "R3BE8P",
     "gameId": "sdamigowii"
@@ -26,7 +31,8 @@
   {
     "gameName": "Sonic & SEGA All-Stars Racing",
     "patchId": [
-      "R3RED00"
+      "R3RED00",
+      "R3RPD00"
     ],
     "gamespyId": "R3RE8P",
     "gameId": "segaracingwii"
@@ -34,7 +40,11 @@
   {
     "gameName": "SimCity Creator",
     "patchId": [
-      "R4CED00"
+      "R4CED00",
+      "R4CJD00",
+      "R4CKD00",
+      "R4CPD00",
+      "R4CPD01"
     ],
     "gamespyId": "R4CE69",
     "gameId": "simcitywii"
@@ -42,7 +52,11 @@
   {
     "gameName": "Mario Strikers Charged",
     "patchId": [
-      "R4QED01"
+      "R4QED01",
+      "R4QJD00",
+      "R4QKD00",
+      "R4QPD01",
+      "R4QPD02"
     ],
     "gamespyId": "R4QE01",
     "gameId": "mschargedwii"
@@ -50,7 +64,8 @@
   {
     "gameName": "NBA 2K10",
     "patchId": [
-      "R76ED00"
+      "R76ED00",
+      "R76PD00"
     ],
     "gamespyId": "R76E54",
     "gameId": "nba2k10wii"
@@ -58,7 +73,8 @@
   {
     "gameName": "NHL 2K10",
     "patchId": [
-      "R7OED00"
+      "R7OED00",
+      "R7OPD00"
     ],
     "gamespyId": "R7OE54",
     "gameId": "nhl2k10wii"
@@ -74,7 +90,9 @@
   {
     "gameName": "Battalion Wars 2",
     "patchId": [
-      "RBWED00"
+      "RBWED00",
+      "RBWJD00",
+      "RBWPD00"
     ],
     "gamespyId": "RBWE01",
     "gameId": "batwars2wii"
@@ -82,7 +100,8 @@
   {
     "gameName": "The Conduit",
     "patchId": [
-      "RCJED00"
+      "RCJED00",
+      "RCJPD00"
     ],
     "gamespyId": "RCJE8P",
     "gameId": "conduitwii"
@@ -90,7 +109,9 @@
   {
     "gameName": "Castlevania Judgment",
     "patchId": [
-      "RDGED00"
+      "RDGED00",
+      "RDGJD00",
+      "RDGPD00"
     ],
     "gamespyId": "RDGEA4",
     "gameId": "CVjudgmentwii"
@@ -98,7 +119,9 @@
   {
     "gameName": "Sonic and the Black Knight",
     "patchId": [
-      "RENED00"
+      "RENED00",
+      "RENJD00",
+      "RENPD00"
     ],
     "gamespyId": "RENE8P",
     "gameId": "sonicbkwii"
@@ -106,7 +129,10 @@
   {
     "gameName": "Endless Ocean",
     "patchId": [
-      "RFBED00"
+      "RFBED00",
+      "RFBJD00",
+      "RFBJD01",
+      "RFBPD00"
     ],
     "gamespyId": "RFBE01",
     "gameId": "foreverbwii"
@@ -122,7 +148,12 @@
   {
     "gameName": "Guitar Hero III - Legends of Rock",
     "patchId": [
-      "RGHKD00"
+      "RGHED00",
+      "RGHED01",
+      "RGHJD00",
+      "RGHKD00",
+      "RGHPD00",
+      "RGHPD01"
     ],
     "gamespyId": "RGHK52",
     "gameId": "guitarh3wii"
@@ -130,7 +161,9 @@
   {
     "gameName": "Ghost Squad",
     "patchId": [
-      "RGSED00"
+      "RGSED00",
+      "RGSJD00",
+      "RGSPD00"
     ],
     "gamespyId": "RGSE8P",
     "gameId": "ghostsquadwii"
@@ -138,7 +171,8 @@
   {
     "gameName": "MySims Sky Heroes",
     "patchId": [
-      "RJ6ED00"
+      "RJ6ED00",
+      "RJ6PD00"
     ],
     "gamespyId": "RJ6E69",
     "gameId": "simsflyerswii"
@@ -154,7 +188,8 @@
   {
     "gameName": "Monster Lab",
     "patchId": [
-      "RM7ED00"
+      "RM7ED00",
+      "RM7PD00"
     ],
     "gamespyId": "RM7E4F",
     "gameId": "monlabwii"
@@ -162,10 +197,14 @@
   {
     "gameName": "Mario Kart Wii",
     "patchId": [
-      "RMCED01",
-      "RMCJD01",
-      "RMCKD01",
-      "RMCPD01"
+      "RMCED00",
+      "RMCJD00",
+      "RMCKD00",
+      "RMCPD00",
+      "RMCEN0001",
+      "RMCJN0001",
+      "RMCKN0001",
+      "RMCPN0001"
     ],
     "gamespyId": "RMCE01",
     "gameId": "mariokartwii"
@@ -173,7 +212,9 @@
   {
     "gameName": "Mario Sports Mix",
     "patchId": [
-      "RMKED00"
+      "RMKED00",
+      "RMKJD00",
+      "RMKPD00"
     ],
     "gamespyId": "RMKE01",
     "gameId": "mariosprtwii"
@@ -181,7 +222,9 @@
   {
     "gameName": "Nitro Bike",
     "patchId": [
-      "RNRED00"
+      "RNRED00",
+      "RNRJD00",
+      "RNRPD00"
     ],
     "gamespyId": "RNRE41",
     "gameId": "nitrobikewii"
@@ -189,7 +232,10 @@
   {
     "gameName": "Mario & Sonic at the Olympic Winter Games",
     "patchId": [
-      "ROLED00"
+      "ROLED00",
+      "ROLJD01",
+      "ROLKD00",
+      "ROLPD00"
     ],
     "gamespyId": "ROLE8P",
     "gameId": "mswinterwii"
@@ -197,7 +243,9 @@
   {
     "gameName": "MySims Party",
     "patchId": [
-      "RP4ED00"
+      "RP4ED00",
+      "RP4JD00",
+      "RP4PD00"
     ],
     "gamespyId": "RP4E69",
     "gameId": "simspartywii"
@@ -205,7 +253,11 @@
   {
     "gameName": "Pokémon Battle Revolution",
     "patchId": [
-      "RPBED00"
+      "RPBED00",
+      "RPBJD00",
+      "RPBJD01",
+      "RPBJD02",
+      "RPBPD00"
     ],
     "gamespyId": "RPBE01",
     "gameId": "pokebattlewii"
@@ -218,8 +270,12 @@
   {
     "gameName": "Super Smash Bros. Brawl",
     "patchId": [
+      "RSBED01",
       "RSBED02",
-      "RSBED01"
+      "RSBJD00",
+      "RSBJD01",
+      "RSBPD00",
+      "RSBPD01"
     ],
     "gamespyId": "RSBE01",
     "gameId": "smashbrosxwii"
@@ -267,7 +323,8 @@
   {
     "gameName": "Ultimate Band",
     "patchId": [
-      "RULED00"
+      "RULED00",
+      "RULPD00"
     ],
     "gamespyId": "RULE4Q",
     "gameId": "ultibandwii"
@@ -275,7 +332,8 @@
   {
     "gameName": "Virtua Tennis 2009",
     "patchId": [
-      "RVUED00"
+      "RVUED00",
+      "RVUPD00"
     ],
     "gamespyId": "RVUE8P",
     "gameId": "vtennisacewii"
@@ -299,7 +357,8 @@
   {
     "gameName": "We Love Golf!",
     "patchId": [
-      "RWGED00"
+      "RWGED00",
+      "RWGPD00"
     ],
     "gamespyId": "RWGE08",
     "gameId": "lovegolfwii"
@@ -307,7 +366,10 @@
   {
     "gameName": "Mario & Sonic at the Olympic Games",
     "patchId": [
-      "RWSED00"
+      "RWSED00",
+      "RWSJD00",
+      "RWSKD00",
+      "RWSPD00"
     ],
     "gamespyId": "RWSE8P",
     "gameId": "MSolympicwii"
@@ -315,8 +377,14 @@
   {
     "gameName": "Rayman Raving Rabbids 2",
     "patchId": [
+      "RY2ED00",
       "RY2ED01",
-      "RY2ED00"
+      "RY2JD00",
+      "RY2KD00",
+      "RY2PD00",
+      "RY2PD01",
+      "RY2PD02",
+      "RY2RD00"
     ],
     "gamespyId": "RY2E41",
     "gameId": "raymanrr2wii"
@@ -341,7 +409,11 @@
   {
     "gameName": "Pro Evolution Soccer 2012",
     "patchId": [
-      "S2PED00"
+      "S2PED00",
+      "S2PJD00",
+      "S2PPD00",
+      "S2PXD00",
+      "S2PYD00"
     ],
     "gamespyId": "S2PEA4",
     "gameId": "winelev12wii"
@@ -365,7 +437,10 @@
   {
     "gameName": "Pro Evolution Soccer 2013",
     "patchId": [
-      "S3IED00"
+      "S3IED00",
+      "S3IPD00",
+      "S3IXD00",
+      "S3IYD00"
     ],
     "gamespyId": "S3IEA4",
     "gameId": "winelev13wii"
@@ -373,7 +448,8 @@
   {
     "gameName": "Samurai Warriors 3",
     "patchId": [
-      "S59ED00"
+      "S59ED00",
+      "S59PD00"
     ],
     "gamespyId": "S59E01",
     "gameId": "sengo3wii"
@@ -397,7 +473,8 @@
   {
     "gameName": "NBA 2K11",
     "patchId": [
-      "SB5ED00"
+      "SB5ED00",
+      "SB5PD00"
     ],
     "gamespyId": "SB5E54",
     "gameId": "nba2k11wii"
@@ -405,7 +482,8 @@
   {
     "gameName": "Conduit 2",
     "patchId": [
-      "SC2ED00"
+      "SC2ED00",
+      "SC2PD00"
     ],
     "gamespyId": "SC2E8P",
     "gameId": "conduit2wii"
@@ -421,7 +499,8 @@
   {
     "gameName": "Greg Hastings Paintball 2",
     "patchId": [
-      "SGBED00"
+      "SGBED00",
+      "SGBPD00"
     ],
     "gamespyId": "SGBE5G",
     "gameId": "hastpaint2wii"
@@ -429,7 +508,8 @@
   {
     "gameName": "Tom Clancy's Ghost Recon",
     "patchId": [
-      "SGHED00"
+      "SGHED00",
+      "SGHPD00"
     ],
     "gamespyId": "SGHE41",
     "gameId": "greconfswii"
@@ -437,7 +517,9 @@
   {
     "gameName": "GTI Club Supermini Festa!",
     "patchId": [
-      "SGIED00"
+      "SGIED00",
+      "SGIJD00",
+      "SGIPD00"
     ],
     "gamespyId": "SGIEA4",
     "gameId": "gticsfestwii"
@@ -445,7 +527,8 @@
   {
     "gameName": "NHL 2K11",
     "patchId": [
-      "SH3ED00"
+      "SH3ED00",
+      "SH3PD00"
     ],
     "gamespyId": "SH3E54",
     "gameId": "nhl2k11wii"
@@ -453,7 +536,10 @@
   {
     "gameName": "Mario & Sonic at the London 2012 Olympic Games",
     "patchId": [
-      "SIIED00"
+      "SIIED00",
+      "SIIJD00",
+      "SIIKD00",
+      "SIIPD00"
     ],
     "gamespyId": "SIIE8P",
     "gameId": "ms2012wii"
@@ -461,7 +547,9 @@
   {
     "gameName": "The Last Story",
     "patchId": [
-      "SLSED00"
+      "SLSED00",
+      "SLSJD00",
+      "SLSPD00"
     ],
     "gamespyId": "SLSEXJ",
     "gameId": "laststorywii"
@@ -469,7 +557,9 @@
   {
     "gameName": "Sonic Colors",
     "patchId": [
-      "SNCED00"
+      "SNCED00",
+      "SNCJD00",
+      "SNCPD00"
     ],
     "gamespyId": "SNCE8P",
     "gameId": "sonic2010wii"
@@ -477,7 +567,11 @@
   {
     "gameName": "Pro Evolution Soccer 2011",
     "patchId": [
-      "SPVED00"
+      "SPVED00",
+      "SPVPD00",
+      "SPVXD00",
+      "SPVYD00",
+      "SPVYD01"
     ],
     "gamespyId": "SPVEA4",
     "gameId": "winelev11wii"
@@ -485,7 +579,9 @@
   {
     "gameName": "Fortune Street",
     "patchId": [
-      "ST7ED00"
+      "ST7ED00",
+      "ST7JD00",
+      "ST7PD00"
     ],
     "gamespyId": "ST7E01",
     "gameId": "itadakistwii"
@@ -493,7 +589,9 @@
   {
     "gameName": "Tetris Party Deluxe",
     "patchId": [
-      "STEED00"
+      "STEED00",
+      "STEJD00",
+      "STEPD00"
     ],
     "gamespyId": "STEETR",
     "gameId": "tetpartywii"
@@ -509,7 +607,11 @@
   {
     "gameName": "Pro Evolution Soccer 2010",
     "patchId": [
-      "SUXED00"
+      "SUXED00",
+      "SUXJD00",
+      "SUXPD00",
+      "SUXXD00",
+      "SUXYD00"
     ],
     "gamespyId": "SUXEA4",
     "gameId": "winelev10wii"
@@ -517,7 +619,8 @@
   {
     "gameName": "Virtua Tennis 4",
     "patchId": [
-      "SV4ED00"
+      "SV4ED00",
+      "SV4PD00"
     ],
     "gamespyId": "SV4E8P",
     "gameId": "virtuaten4wii"
@@ -525,7 +628,8 @@
   {
     "gameName": "Bit.Trip Complete",
     "patchId": [
-      "SVTED00"
+      "SVTED00",
+      "SVTPD00"
     ],
     "gamespyId": "SVTEXS",
     "gameId": "bittripwii"
@@ -533,7 +637,8 @@
   {
     "gameName": "Winter Stars",
     "patchId": [
-      "SW3ED00"
+      "SW3ED00",
+      "SW3PD00"
     ],
     "gamespyId": "SW3EJJ",
     "gameId": "winterstarwii"
@@ -541,7 +646,9 @@
   {
     "gameName": "ThruSpace",
     "patchId": [
-      "W3KEN0001"
+      "W3KEN0001",
+      "W3KJN0001",
+      "W3KPN0001"
     ],
     "gamespyId": "W3KE",
     "gameId": "surkatamarwii"
@@ -557,7 +664,8 @@
   {
     "gameName": "Spaceball Revolution",
     "patchId": [
-      "W4TEN0003"
+      "W4TEN0003",
+      "W4TPN0003"
     ],
     "gamespyId": "W4TE",
     "gameId": "sballrevwii"
@@ -565,7 +673,8 @@
   {
     "gameName": "Toribash",
     "patchId": [
-      "WA7EN0005"
+      "WA7EN0005",
+      "WA7PN0005"
     ],
     "gamespyId": "WA7E",
     "gameId": "toribashwii"
@@ -573,7 +682,9 @@
   {
     "gameName": "Snowboard Riot",
     "patchId": [
-      "WBBEN0001"
+      "WBBEN0001",
+      "WBBJN0001",
+      "WBBPN0002"
     ],
     "gamespyId": "WBBE",
     "gameId": "bboarderswii"
@@ -581,7 +692,8 @@
   {
     "gameName": "Bubble Bobble Wii",
     "patchId": [
-      "WBLJN0003"
+      "WBLJN0003",
+      "WBLPN0003"
     ],
     "gamespyId": "WBLJ",
     "gameId": "bbobblewii"
@@ -589,7 +701,9 @@
   {
     "gameName": "Star Soldier R",
     "patchId": [
-      "WBQEN0002"
+      "WBQEN0002",
+      "WBQJN0000",
+      "WBQPN0001"
     ],
     "gamespyId": "WBQE",
     "gameId": "ssoldierrwii"
@@ -597,7 +711,9 @@
   {
     "gameName": "Pop",
     "patchId": [
-      "WBSEN0003"
+      "WBSEN0003",
+      "WBSJN0002",
+      "WBSPN0005"
     ],
     "gamespyId": "WBSE",
     "gameId": "popwii"
@@ -605,7 +721,9 @@
   {
     "gameName": "Crystal Defenders R2",
     "patchId": [
-      "WC2EN0000"
+      "WC2EN0000",
+      "WC2JN0000",
+      "WC2PN0001"
     ],
     "gamespyId": "WC2E",
     "gameId": "crystalw2wii"
@@ -613,7 +731,8 @@
   {
     "gameName": "Chess Challenge!",
     "patchId": [
-      "WCHEN0001"
+      "WCHEN0001",
+      "WCHPN0002"
     ],
     "gamespyId": "WCHE",
     "gameId": "chesschalwii"
@@ -621,7 +740,9 @@
   {
     "gameName": "Crystal Defenders R1",
     "patchId": [
-      "WCIEN0000"
+      "WCIEN0000",
+      "WCIJN0000",
+      "WCIPN0001"
     ],
     "gamespyId": "WCIE",
     "gameId": "crystalw1wii"
@@ -637,7 +758,9 @@
   {
     "gameName": "3-2-1, Rattle Battle!",
     "patchId": [
-      "WCUEN0002"
+      "WCUEN0002",
+      "WCUJN0001",
+      "WCUPN0001"
     ],
     "gamespyId": "WCUE",
     "gameId": "tcounterwii"
@@ -645,7 +768,8 @@
   {
     "gameName": "Derby Dogs",
     "patchId": [
-      "WDBEN0003"
+      "WDBEN0003",
+      "WDBJN0002"
     ],
     "gamespyId": "WDBE",
     "gameId": "derbydogwii"
@@ -653,7 +777,9 @@
   {
     "gameName": "Diner Dash",
     "patchId": [
-      "WDDEN0002"
+      "WDDEN0002",
+      "WDDJN0001",
+      "WDDPN0002"
     ],
     "gamespyId": "WDDE",
     "gameId": "dinerdashwii"
@@ -662,7 +788,11 @@
     "gameName": "Dr. Mario Online Rx",
     "patchId": [
       "WDMEN0000",
-      "WDMEN0100"
+      "WDMEN0100",
+      "WDMJN0000",
+      "WDMJN0100",
+      "WDMPN0000",
+      "WDMPN0100"
     ],
     "gamespyId": "WDME",
     "gameId": "drmariowii"
@@ -670,7 +800,8 @@
   {
     "gameName": "My Dolphin",
     "patchId": [
-      "WE6EN0003"
+      "WE6EN0003",
+      "WE6JN0004"
     ],
     "gamespyId": "WE6E",
     "gameId": "seafarmwii"
@@ -678,7 +809,10 @@
   {
     "gameName": "Alien Crush Returns",
     "patchId": [
-      "WE9EN0001"
+      "WE9EN0001",
+      "WE9JN0000",
+      "WE9PN0002",
+      "WE9PN0100"
     ],
     "gamespyId": "WE9E",
     "gameId": "aliencrashwii"
@@ -686,7 +820,8 @@
   {
     "gameName": "TNT Racers",
     "patchId": [
-      "WENEN0004"
+      "WENEN0004",
+      "WENPN0003"
     ],
     "gamespyId": "WENE",
     "gameId": "keenracerswii"
@@ -694,7 +829,9 @@
   {
     "gameName": "Viral Survival",
     "patchId": [
-      "WEVEN0003"
+      "WEVEN0003",
+      "WEVJN0001",
+      "WEVPN0008"
     ],
     "gamespyId": "WEVE",
     "gameId": "escviruswii"
@@ -702,7 +839,9 @@
   {
     "gameName": "World of Goo",
     "patchId": [
-      "WGOEN0001"
+      "WGOEN0001",
+      "WGOJN0000",
+      "WGOPN0001"
     ],
     "gamespyId": "WGOE",
     "gameId": "wrldgoowii"
@@ -710,7 +849,8 @@
   {
     "gameName": "HoopWorld",
     "patchId": [
-      "WHWEN0003"
+      "WHWEN0003",
+      "WHWPN0006"
     ],
     "gamespyId": "WHWE",
     "gameId": "hoopworldwii"
@@ -719,7 +859,8 @@
     "gameName": "Dracula - Undead Awakening",
     "patchId": [
       "WIDEN0002",
-      "WIDEN0003"
+      "WIDEN0003",
+      "WIDPN0003"
     ],
     "gamespyId": "WIDE",
     "gameId": "idraculawii"
@@ -727,7 +868,10 @@
   {
     "gameName": "Space Invaders Get Even",
     "patchId": [
-      "WIVEN0002"
+      "WIVEN0002",
+      "WIVJN0002",
+      "WIVJN0100",
+      "WIVPN0002"
     ],
     "gamespyId": "WIVE",
     "gameId": "spinvgewii"
@@ -735,7 +879,9 @@
   {
     "gameName": "Bejeweled 2",
     "patchId": [
-      "WJWEN0001"
+      "WJWEN0001",
+      "WJWPN0002",
+      "WJWPN0100"
     ],
     "gamespyId": "WJWE",
     "gameId": "bejeweled2wii"
@@ -751,7 +897,8 @@
   {
     "gameName": "Lonpos",
     "patchId": [
-      "WLPEN0001"
+      "WLPEN0001",
+      "WLPPN0002"
     ],
     "gamespyId": "WLPE",
     "gameId": "lonposwii"
@@ -759,7 +906,8 @@
   {
     "gameName": "Manic Monkey Mayhem",
     "patchId": [
-      "WM3EN0005"
+      "WM3EN0005",
+      "WM3PN0005"
     ],
     "gamespyId": "WM3E",
     "gameId": "monkmayhemwii"
@@ -767,7 +915,8 @@
   {
     "gameName": "Tataite! Mogupon",
     "patchId": [
-      "WM9JN0001"
+      "WM9EN0003",
+      "WM9PN0002"
     ],
     "gamespyId": "WM9J",
     "gameId": "mogumonwii"
@@ -791,7 +940,9 @@
   {
     "gameName": "Military Madness - Nectaris",
     "patchId": [
-      "WN9EN0002"
+      "WN9EN0002",
+      "WN9JN0001",
+      "WN9PN0001"
     ],
     "gamespyId": "WN9E",
     "gameId": "mmadnesswii"
@@ -799,7 +950,10 @@
   {
     "gameName": "Overturn",
     "patchId": [
-      "WOTEN0001"
+      "WOTEN0001",
+      "WOTJN0001",
+      "WOTJN0100",
+      "WOTPN0006"
     ],
     "gamespyId": "WOTE",
     "gameId": "overturnwii"
@@ -815,7 +969,9 @@
   {
     "gameName": "Pit Crew Panic!",
     "patchId": [
-      "WPIEN0001"
+      "WPIEN0001",
+      "WPIJN0001",
+      "WPIPN0001"
     ],
     "gamespyId": "WPIE",
     "gameId": "pitcrewwii"
@@ -831,7 +987,9 @@
   {
     "gameName": "Mega Man 9",
     "patchId": [
-      "WR9EN0001"
+      "WR9EN0001",
+      "WR9JN0002",
+      "WR9PN0002"
     ],
     "gamespyId": "WR9E",
     "gameId": "megaman9wii"
@@ -847,7 +1005,9 @@
   {
     "gameName": "Onslaught",
     "patchId": [
-      "WSAEN0001"
+      "WSAEN0001",
+      "WSAJN0000",
+      "WSAPN0001"
     ],
     "gamespyId": "WSAE",
     "gameId": "assultwii"
@@ -855,7 +1015,8 @@
   {
     "gameName": "Sneezies",
     "patchId": [
-      "WSZEN0002"
+      "WSZEN0002",
+      "WSZPN0002"
     ],
     "gamespyId": "WSZE",
     "gameId": "sneezieswiiw"
@@ -863,7 +1024,8 @@
   {
     "gameName": "TV Show King 2",
     "patchId": [
-      "WTKEN0003"
+      "WTKEN0003",
+      "WTKPN0003"
     ],
     "gamespyId": "WTKE",
     "gameId": "tvshwking2wii"
@@ -871,7 +1033,9 @@
   {
     "gameName": "Adventure Island - The Beginning",
     "patchId": [
-      "WTMEN0002"
+      "WTMEN0002",
+      "WTMJN0002",
+      "WTMPN0002"
     ],
     "gamespyId": "WTME",
     "gameId": "takameijinwii"
@@ -879,7 +1043,11 @@
   {
     "gameName": "Water Warfare",
     "patchId": [
-      "WVKEN0002"
+      "WVKEN0002",
+      "WVKJN0003",
+      "WVKJN0100",
+      "WVKPN0002",
+      "WVKPN0003"
     ],
     "gamespyId": "WVKE",
     "gameId": "wtrwarfarewii"
@@ -889,7 +1057,9 @@
     "patchId": [
       "WWREN0002",
       "WWREN0101",
-      "WWREN0200"
+      "WWREN0200",
+      "WWRJN0001",
+      "WWRPN0001"
     ],
     "gamespyId": "WWRE",
     "gameId": "bewarewii"
@@ -906,7 +1076,12 @@
     "gameName": "Wii Speak Channel",
     "patchId": [
       "HCFEN0100",
-      "HCFEN0200"
+      "HCFEN0200",
+      "HCFJN0100",
+      "HCFJN0200",
+      "HCFKN0200",
+      "HCFPN0100",
+      "HCFPN0200"
     ],
     "gamespyId": "HCFE",
     "gameId": "micchannelwii"
@@ -919,7 +1094,7 @@
       "A2OJC00",
       "A2OPC00"
     ],
-    "gameName": "Prey the Stars: Gabu Gabu Planet (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Prey the Stars: Gabu Gabu Planet"
   },
   {
     "gameId": "suitelifeEUds",
@@ -927,7 +1102,7 @@
     "patchId": [
       "A3HPC00"
     ],
-    "gameName": "The Suite Life of Zack & Cody: Circle of Spies (Europe) (EN,FR,DE,ES,IT,NL)"
+    "gameName": "The Suite Life of Zack & Cody: Circle of Spies"
   },
   {
     "gameId": "sonicrushads",
@@ -938,7 +1113,7 @@
       "A3YPC00",
       "A3YPC01"
     ],
-    "gameName": "Sonic Rush Adventure (USA) (EN,FR,DE,ES,IT)"
+    "gameName": "Sonic Rush Adventure"
   },
   {
     "gameId": "moritashogids",
@@ -946,7 +1121,7 @@
     "patchId": [
       "A4UJC00"
     ],
-    "gameName": "Wi-Fi Taiou - Morita Shogi DS (Japan) (JA)"
+    "gameName": "Wi-Fi Taiou - Morita Shogi DS"
   },
   {
     "gameId": "n/a",
@@ -959,7 +1134,7 @@
       "A5FKC00",
       "A5FPC00"
     ],
-    "gameName": "Professor Layton and the Curious Village (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Professor Layton and the Curious Village"
   },
   {
     "gameId": "rockmanwds",
@@ -967,7 +1142,7 @@
     "patchId": [
       "A6AJC00"
     ],
-    "gameName": "Ryuusei no Rockman - Pegasus (Japan) (EN,JA)"
+    "gameName": "Ryuusei no Rockman - Pegasus"
   },
   {
     "gameId": "rockmanwds",
@@ -975,7 +1150,7 @@
     "patchId": [
       "A6BJC00"
     ],
-    "gameName": "Ryuusei no Rockman - Leo (Japan) (EN,JA)"
+    "gameName": "Ryuusei no Rockman - Leo"
   },
   {
     "gameId": "rockmanwds",
@@ -983,7 +1158,7 @@
     "patchId": [
       "A6CJC00"
     ],
-    "gameName": "Ryuusei no Rockman - Dragon (Japan) (EN,JA)"
+    "gameName": "Ryuusei no Rockman - Dragon"
   },
   {
     "gameId": "megamansfeuds",
@@ -991,7 +1166,7 @@
     "patchId": [
       "A6CPC00"
     ],
-    "gameName": "Mega Man Star Force: Dragon (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Mega Man Star Force: Dragon"
   },
   {
     "gameId": "kingbeetlesds",
@@ -999,7 +1174,7 @@
     "patchId": [
       "A6IJC00"
     ],
-    "gameName": "Kouchuu Ouja Mushi King Super Collection (Japan) (EN,JA)"
+    "gameName": "Kouchuu Ouja Mushi King Super Collection"
   },
   {
     "gameId": "ardinokingds",
@@ -1007,7 +1182,7 @@
     "patchId": [
       "A6KJC00"
     ],
-    "gameName": "Kodai Ouja Kyouryuu King - 7-tsu no Kakera (Japan) (EN,JA)"
+    "gameName": "Kodai Ouja Kyouryuu King - 7-tsu no Kakera"
   },
   {
     "gameId": "rfactory2ds",
@@ -1018,7 +1193,7 @@
       "A6NJC01",
       "A6NPC00"
     ],
-    "gameName": "Rune Factory 2: A Fantasy Harvest Moon (Europe) (EN,DE)"
+    "gameName": "Rune Factory 2: A Fantasy Harvest Moon"
   },
   {
     "gameId": "pandeponds",
@@ -1029,7 +1204,7 @@
       "A8NPC00",
       "A8NPC01"
     ],
-    "gameName": "Planet Puzzle League (USA) (EN)"
+    "gameName": "Planet Puzzle League"
   },
   {
     "gameId": "bokujomonods",
@@ -1037,7 +1212,7 @@
     "patchId": [
       "ABJJC00"
     ],
-    "gameName": "Bokujou Monogatari - Kimi to Sodatsu Shima (Japan) (JA)"
+    "gameName": "Bokujou Monogatari - Kimi to Sodatsu Shima"
   },
   {
     "gameId": "harmoon2ds",
@@ -1045,7 +1220,7 @@
     "patchId": [
       "ABJPC00"
     ],
-    "gameName": "Harvest Moon DS: Island of Happiness (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Harvest Moon DS: Island of Happiness"
   },
   {
     "gameId": "bleach1USds",
@@ -1055,7 +1230,7 @@
       "ABLJC00",
       "ABLPC00"
     ],
-    "gameName": "Bleach: The Blade of Fate (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Bleach: The Blade of Fate"
   },
   {
     "gameId": "bleachds",
@@ -1065,7 +1240,7 @@
       "ABLJC00",
       "ABLPC00"
     ],
-    "gameName": "Bleach: The Blade of Fate (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Bleach: The Blade of Fate"
   },
   {
     "gameId": "bleach1EUds",
@@ -1075,7 +1250,7 @@
       "ABLJC00",
       "ABLPC00"
     ],
-    "gameName": "Bleach: The Blade of Fate (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Bleach: The Blade of Fate"
   },
   {
     "gameId": "bombermanslds",
@@ -1086,7 +1261,7 @@
       "ABXKC00",
       "ABXPC00"
     ],
-    "gameName": "Bomberman Land Touch! (USA) (EN)"
+    "gameName": "Bomberman Land Touch!"
   },
   {
     "gameId": "bleach2EUds",
@@ -1094,7 +1269,7 @@
     "patchId": [
       "ABZPC00"
     ],
-    "gameName": "Bleach: Dark Souls (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Bleach: Dark Souls"
   },
   {
     "gameId": "draculagolds",
@@ -1105,7 +1280,7 @@
       "ACBJC01",
       "ACBPC00"
     ],
-    "gameName": "Castlevania - Portrait of Ruin (USA) (EN)"
+    "gameName": "Castlevania - Portrait of Ruin"
   },
   {
     "gameId": "cusrobousds",
@@ -1113,7 +1288,7 @@
     "patchId": [
       "ACLEC00"
     ],
-    "gameName": "Custom Robo Arena (USA) (EN)"
+    "gameName": "Custom Robo Arena"
   },
   {
     "gameId": "Customrobods",
@@ -1121,7 +1296,7 @@
     "patchId": [
       "ACLJC00"
     ],
-    "gameName": "Gekitou! Custom Robo (Japan) (JA)"
+    "gameName": "Gekitou! Custom Robo"
   },
   {
     "gameId": "custoboeuds",
@@ -1129,7 +1304,7 @@
     "patchId": [
       "ACLPC00"
     ],
-    "gameName": "Custom Robo Arena (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Custom Robo Arena"
   },
   {
     "gameId": "contactusds",
@@ -1138,7 +1313,7 @@
       "ACOEC00",
       "ACOPC00"
     ],
-    "gameName": "Contact (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Contact"
   },
   {
     "gameId": "tenchuds",
@@ -1149,7 +1324,7 @@
       "ACUXC00",
       "ACUYC00"
     ],
-    "gameName": "Tenchu: Dark Secret (USA) (EN)"
+    "gameName": "Tenchu: Dark Secret"
   },
   {
     "gameId": "dragladeds",
@@ -1157,7 +1332,7 @@
     "patchId": [
       "AD9EC00"
     ],
-    "gameName": "Draglade (USA) (EN)"
+    "gameName": "Draglade"
   },
   {
     "gameId": "pokemondpds",
@@ -1174,7 +1349,7 @@
       "ADAKC00",
       "ADASC05"
     ],
-    "gameName": "Pokémon Diamant-Edition (Europe) (DE)"
+    "gameName": "Pokémon Diamant-Edition"
   },
   {
     "gameId": "acrossingds",
@@ -1187,7 +1362,7 @@
       "ADMKC00",
       "ADMPC00"
     ],
-    "gameName": "Animal Crossing: Wild World (USA) (EN)"
+    "gameName": "Animal Crossing: Wild World"
   },
   {
     "gameId": "digiwrldds",
@@ -1195,7 +1370,7 @@
     "patchId": [
       "ADNEC00"
     ],
-    "gameName": "Digimon World DS (USA) (EN)"
+    "gameName": "Digimon World DS"
   },
   {
     "gameId": "digistoryds",
@@ -1204,7 +1379,7 @@
       "ADNJC00",
       "ADNJC01"
     ],
-    "gameName": "Digimon Story (Japan) (JA)"
+    "gameName": "Digimon Story"
   },
   {
     "gameId": "itadakistds",
@@ -1212,7 +1387,7 @@
     "patchId": [
       "AEEJC00"
     ],
-    "gameName": "Itadaki Street DS (Dragon Quest Super Mario) (Japan) (EN,JA)"
+    "gameName": "Itadaki Street DS (Dragon Quest Super Mario)"
   },
   {
     "gameId": "chocobombds",
@@ -1222,7 +1397,7 @@
       "AEHJC00",
       "AEHPC00"
     ],
-    "gameName": "Final Fantasy Fables: Chocobo Tales (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Final Fantasy Fables: Chocobo Tales"
   },
   {
     "gameId": "naruto5ds",
@@ -1232,7 +1407,7 @@
       "AENJC00",
       "AENPC00"
     ],
-    "gameName": "Naruto Shippuden Ninja Council 3 European Version (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Naruto Shippuden Ninja Council 3 European Version"
   },
   {
     "gameId": "ffantasy3euds",
@@ -1240,7 +1415,7 @@
     "patchId": [
       "AFFPC00"
     ],
-    "gameName": "Final Fantasy III (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Final Fantasy III"
   },
   {
     "gameId": "shirenUSEUds",
@@ -1249,7 +1424,7 @@
       "AFUEC00",
       "AFUPC00"
     ],
-    "gameName": "Mystery Dungeon: Shiren the Wanderer (Europe) (EN)"
+    "gameName": "Mystery Dungeon: Shiren the Wanderer"
   },
   {
     "gameId": "ffcryschronds",
@@ -1259,7 +1434,7 @@
       "AFXJC00",
       "AFXPC00"
     ],
-    "gameName": "Final Fantasy Crystal Chronicles - Ring of Fates (USA) (EN)"
+    "gameName": "Final Fantasy Crystal Chronicles - Ring of Fates"
   },
   {
     "gameId": "dqmonjokerds",
@@ -1269,7 +1444,7 @@
       "AJRJC00",
       "AJRPC00"
     ],
-    "gameName": "Dragon Quest Monsters: Joker (USA) (EN)"
+    "gameName": "Dragon Quest Monsters: Joker"
   },
   {
     "gameId": "jumpsstars2ds",
@@ -1277,7 +1452,7 @@
     "patchId": [
       "AJUJC00"
     ],
-    "gameName": "Jump Ultimate Stars (Japan) (EN,JA)"
+    "gameName": "Jump Ultimate Stars"
   },
   {
     "gameId": "kurikurimixds",
@@ -1287,7 +1462,7 @@
       "AK3JC00",
       "AK3PC00"
     ],
-    "gameName": "Kurikuri DS - Otasuke Island (Japan) (JA)"
+    "gameName": "Kurikuri DS - Otasuke Island"
   },
   {
     "gameId": "lostmagicds",
@@ -1297,7 +1472,7 @@
       "AM9JC00",
       "AM9PC00"
     ],
-    "gameName": "LostMagic (Japan) (JA)"
+    "gameName": "LostMagic"
   },
   {
     "gameId": "mariokartds",
@@ -1308,7 +1483,7 @@
       "AMCKC00",
       "AMCPC00"
     ],
-    "gameName": "Mario Kart DS (USA) (EN,FR,DE,ES,IT)"
+    "gameName": "Mario Kart DS"
   },
   {
     "gameId": "mprimeds",
@@ -1322,7 +1497,7 @@
       "AMHPC00",
       "AMHPC01"
     ],
-    "gameName": "Metroid Prime Hunters (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Metroid Prime Hunters"
   },
   {
     "gameId": "mmvdkds",
@@ -1332,7 +1507,7 @@
       "AMQJC00",
       "AMQPC00"
     ],
-    "gameName": "Mario vs. Donkey Kong 2: March of the Minis (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Mario vs. Donkey Kong 2: March of the Minis"
   },
   {
     "gameId": "Narutonin2ds",
@@ -1342,7 +1517,7 @@
       "ANTJC00",
       "ANTJC01"
     ],
-    "gameName": "Naruto: Path of the Ninja 2 (USA) (EN,FR)"
+    "gameName": "Naruto: Path of the Ninja 2"
   },
   {
     "gameId": "n/a",
@@ -1351,7 +1526,7 @@
       "AOIJC00",
       "AOIJC01"
     ],
-    "gameName": "Kenkou Ouen Recipe 1000: DS Kondate Zenshuu (Japan) (JA)"
+    "gameName": "Kenkou Ouen Recipe 1000: DS Kondate Zenshuu"
   },
   {
     "gameId": "pokemondpds",
@@ -1368,7 +1543,7 @@
       "APAKC00",
       "APASC05"
     ],
-    "gameName": "Pokémon Perl-Edition (Europe) (DE)"
+    "gameName": "Pokémon Perl-Edition"
   },
   {
     "gameId": "puyopuyods",
@@ -1379,7 +1554,7 @@
       "APUJC02",
       "APUJC03"
     ],
-    "gameName": "Puyo Puyo! - Puyopuyo 15th Anniversary (Japan) (JA)"
+    "gameName": "Puyo Puyo! - Puyopuyo 15th Anniversary"
   },
   {
     "gameId": "koshien2ds",
@@ -1388,7 +1563,7 @@
       "APXJC00",
       "APXJC01"
     ],
-    "gameName": "Atsumare! Power Pro Kun no DS Koushien (Japan) (EN,JA)"
+    "gameName": "Atsumare! Power Pro Kun no DS Koushien"
   },
   {
     "gameId": "openseasonds",
@@ -1398,7 +1573,7 @@
       "AQAPC00",
       "AQAXC00"
     ],
-    "gameName": "Open Season (Europe) (EN,FR,DE,ES,IT,SE,DK,NO,FI)"
+    "gameName": "Open Season"
   },
   {
     "gameId": "rfactoryEUds",
@@ -1406,7 +1581,7 @@
     "patchId": [
       "ARFPC00"
     ],
-    "gameName": "Rune Factory: A Fantasy Harvest Moon (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Rune Factory: A Fantasy Harvest Moon"
   },
   {
     "gameId": "luckystar2ds",
@@ -1414,7 +1589,7 @@
     "patchId": [
       "ARTJC00"
     ],
-    "gameName": "Shin Lucky☆Star Moe Drill: Tabidachi (Japan) (JA)"
+    "gameName": "Shin Lucky☆Star Moe Drill: Tabidachi"
   },
   {
     "gameId": "starfoxds",
@@ -1424,7 +1599,7 @@
       "ASFJC00",
       "ASFPC00"
     ],
-    "gameName": "Star Fox Command (USA) (EN)"
+    "gameName": "Star Fox Command"
   },
   {
     "gameId": "asobids",
@@ -1436,7 +1611,7 @@
       "ATDPC00",
       "ATDPC01"
     ],
-    "gameName": "Clubhouse Games (USA) (EN,FR,ES)"
+    "gameName": "Clubhouse Games"
   },
   {
     "gameId": "tetrisds",
@@ -1447,7 +1622,7 @@
       "ATRKC00",
       "ATRPC00"
     ],
-    "gameName": "Tetris DS (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Tetris DS"
   },
   {
     "gameId": "wormsow2ds",
@@ -1456,7 +1631,7 @@
       "AW2EC00",
       "AW2PC00"
     ],
-    "gameName": "Worms: Open Warfare 2 (USA) (EN,FR)"
+    "gameName": "Worms: Open Warfare 2"
   },
   {
     "gameId": "whammer40ktds",
@@ -1467,7 +1642,7 @@
       "AW4YC00",
       "AW4ZC00"
     ],
-    "gameName": "Warhammer 40,000: Squad Command (USA) (EN,FR)"
+    "gameName": "Warhammer 40,000: Squad Command"
   },
   {
     "gameId": "dkracingds",
@@ -1476,7 +1651,7 @@
       "AWDEC00",
       "AWDPC00"
     ],
-    "gameName": "Diddy Kong Racing DS (USA) (EN)"
+    "gameName": "Diddy Kong Racing DS"
   },
   {
     "gameId": "socelevends",
@@ -1486,7 +1661,7 @@
       "AWEJC00",
       "AWEPC01"
     ],
-    "gameName": "Pro Evolution Soccer 6 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Pro Evolution Soccer 6"
   },
   {
     "gameId": "picrossds",
@@ -1497,7 +1672,7 @@
       "AXPKC00",
       "AXPPC00"
     ],
-    "gameName": "Picross DS (Europe) (EN,FR,DE,ES,IT,PT)"
+    "gameName": "Picross DS"
   },
   {
     "gameId": "surfsupds",
@@ -1508,7 +1683,7 @@
       "AXUPC00",
       "AXUXC00"
     ],
-    "gameName": "Surf's Up (Europe) (EN,FR,ES)"
+    "gameName": "Surf's Up"
   },
   {
     "gameId": "dfriendsEUds",
@@ -1521,7 +1696,7 @@
       "AXVPC00",
       "AXVSC00"
     ],
-    "gameName": "Disney Friends (Europe) (DE)"
+    "gameName": "Disney Friends"
   },
   {
     "gameId": "yugiohWC07ds",
@@ -1531,7 +1706,7 @@
       "AY7JC00",
       "AY7PC00"
     ],
-    "gameName": "Yu-Gi-Oh!: World Championship 2007 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Yu-Gi-Oh!: World Championship 2007"
   },
   {
     "gameId": "MSolympicds",
@@ -1542,7 +1717,7 @@
       "AY9KC00",
       "AY9PC00"
     ],
-    "gameName": "Mario & Sonic at the Olympic Games (USA) (EN,FR,DE,ES,IT)"
+    "gameName": "Mario & Sonic at the Olympic Games"
   },
   {
     "gameId": "lozphourds",
@@ -1553,7 +1728,7 @@
       "AZEKC00",
       "AZEPC00"
     ],
-    "gameName": "The Legend of Zelda: Phantom Hourglass (USA) (EN)"
+    "gameName": "The Legend of Zelda: Phantom Hourglass"
   },
   {
     "gameId": "girlsds",
@@ -1564,7 +1739,7 @@
       "AZLKC00",
       "AZLPC01"
     ],
-    "gameName": "Style Savvy (USA) (EN)"
+    "gameName": "Style Savvy"
   },
   {
     "gameId": "n/a",
@@ -1574,7 +1749,7 @@
       "B3RJC00",
       "B3RPC00"
     ],
-    "gameName": "Pokémon Ranger: Guardian Signs (USA) (EN)"
+    "gameName": "Pokémon Ranger: Guardian Signs"
   },
   {
     "gameId": "tetrisdeluxds",
@@ -1584,7 +1759,7 @@
       "B4TJC00",
       "B4TPC00"
     ],
-    "gameName": "Tetris Party Deluxe (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Tetris Party Deluxe"
   },
   {
     "gameId": "codprojorlds",
@@ -1597,7 +1772,7 @@
       "B5BPC00",
       "B5BXC00"
     ],
-    "gameName": "Call of Duty: Modern Warfare 3 - Defiance (Europe) (DE)"
+    "gameName": "Call of Duty: Modern Warfare 3 - Defiance"
   },
   {
     "gameId": "mfightbbunads",
@@ -1608,7 +1783,7 @@
       "BBUYC00",
       "BBUZC00"
     ],
-    "gameName": "Beyblade - Metal Fusion (USA) (EN,FR,ES)"
+    "gameName": "Beyblade - Metal Fusion"
   },
   {
     "gameId": "mfightbbueuds",
@@ -1616,7 +1791,7 @@
     "patchId": [
       "BBUPC00"
     ],
-    "gameName": "Beyblade Metal Fusion: Cyber Pegasus (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Beyblade Metal Fusion: Cyber Pegasus"
   },
   {
     "gameId": "cod7ds",
@@ -1629,7 +1804,7 @@
       "BDYXC00",
       "BDYYC00"
     ],
-    "gameName": "Call of Duty: Black Ops (Europe) (DE)"
+    "gameName": "Call of Duty: Black Ops"
   },
   {
     "gameId": "n/a",
@@ -1643,7 +1818,7 @@
       "BEEPC00",
       "BEESC00"
     ],
-    "gameName": "Inazuma Eleven 2: Feuersturm (Europe) (DE)"
+    "gameName": "Inazuma Eleven 2: Feuersturm"
   },
   {
     "gameId": "mysimsflyerds",
@@ -1652,7 +1827,7 @@
       "BFLEC00",
       "BFLPC00"
     ],
-    "gameName": "MySims SkyHeroes (Europe) (EN,FR,DE,ES,IT,NL)"
+    "gameName": "MySims SkyHeroes"
   },
   {
     "gameId": "jbond2009ds",
@@ -1664,7 +1839,7 @@
       "BJBPC00",
       "BJBXC00"
     ],
-    "gameName": "007: Blood Stone (Europe) (DE)"
+    "gameName": "007: Blood Stone"
   },
   {
     "gameId": "jbondmv2ds",
@@ -1678,7 +1853,7 @@
       "BJCSC00",
       "BJCZC00"
     ],
-    "gameName": "GoldenEye 007 (Europe) (DE)"
+    "gameName": "GoldenEye 007"
   },
   {
     "gameId": "n/a",
@@ -1694,7 +1869,7 @@
       "BLFPC00",
       "BLFSC00"
     ],
-    "gameName": "Professor Layton und der Ruf des Phantoms (Europe) (DE)"
+    "gameName": "Professor Layton und der Ruf des Phantoms"
   },
   {
     "gameId": "pangmagmichds",
@@ -1702,7 +1877,7 @@
     "patchId": [
       "BR5PC00"
     ],
-    "gameName": "Magical Michael Pang (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Magical Michael Pang"
   },
   {
     "gameId": "rfactory3ds",
@@ -1712,7 +1887,7 @@
       "BRFJC00",
       "BRFPC00"
     ],
-    "gameName": "Rune Factory 3 (Japan) (JA)"
+    "gameName": "Rune Factory 3"
   },
   {
     "gameId": "scribnauteuds",
@@ -1721,7 +1896,7 @@
       "BSLPC00",
       "BSLXC00"
     ],
-    "gameName": "Scribblenauts (Europe) (EN,FR,DE,ES,IT,NL)"
+    "gameName": "Scribblenauts"
   },
   {
     "gameId": "sonic2010ds",
@@ -1731,7 +1906,7 @@
       "BXSJC00",
       "BXSPC00"
     ],
-    "gameName": "Sonic Colors (USA) (EN,FR,ES)"
+    "gameName": "Sonic Colors"
   },
   {
     "gameId": "puyopuyo7ds",
@@ -1739,7 +1914,7 @@
     "patchId": [
       "BYOJC00"
     ],
-    "gameName": "Puyo Puyo 7 (Japan) (EN,JA)"
+    "gameName": "Puyo Puyo 7"
   },
   {
     "gameId": "yugiohwc10ds",
@@ -1750,7 +1925,7 @@
       "BYXKC00",
       "BYXPC00"
     ],
-    "gameName": "Yu-Gi-Oh! 5D's - World Championship 2010: Reverse of Arcadia (Japan) (JA)"
+    "gameName": "Yu-Gi-Oh! 5D's - World Championship 2010: Reverse of Arcadia"
   },
   {
     "gameId": "n/a",
@@ -1758,7 +1933,7 @@
     "patchId": [
       "BZQJC00"
     ],
-    "gameName": "Zac to Ombra - Maboroshi no Yuuenchi (Japan) (EN,JA)"
+    "gameName": "Zac to Ombra - Maboroshi no Yuuenchi"
   },
   {
     "gameId": "fstarzerods",
@@ -1768,7 +1943,7 @@
       "C24JC00",
       "C24PC00"
     ],
-    "gameName": "Phantasy Star 0 (USA) (EN)"
+    "gameName": "Phantasy Star 0"
   },
   {
     "gameId": "mini4wdds",
@@ -1776,7 +1951,7 @@
     "patchId": [
       "C34JC00"
     ],
-    "gameName": "Mini Yonku DS (Japan) (EN,JA)"
+    "gameName": "Mini Yonku DS"
   },
   {
     "gameId": "n/a",
@@ -1792,7 +1967,7 @@
       "C3JPC00",
       "C3JSC00"
     ],
-    "gameName": "Professor Layton und die verlorene Zukunft (Europe) (DE)"
+    "gameName": "Professor Layton und die verlorene Zukunft"
   },
   {
     "gameId": "sporearenads",
@@ -1802,7 +1977,7 @@
       "C49JC00",
       "C49PC00"
     ],
-    "gameName": "Spore Hero Arena (USA) (EN)"
+    "gameName": "Spore Hero Arena"
   },
   {
     "gameId": "codmw2ds",
@@ -1816,7 +1991,7 @@
       "C62PC00",
       "C62SC00"
     ],
-    "gameName": "Call of Duty: Modern Warfare - Mobilized (Europe) (DE)"
+    "gameName": "Call of Duty: Modern Warfare - Mobilized"
   },
   {
     "gameId": "3dpicrossUSds",
@@ -1824,7 +1999,7 @@
     "patchId": [
       "C6PEC00"
     ],
-    "gameName": "Picross 3D (USA) (EN)"
+    "gameName": "Picross 3D"
   },
   {
     "gameId": "3dpicrossds",
@@ -1832,7 +2007,7 @@
     "patchId": [
       "C6PJC00"
     ],
-    "gameName": "Rittai Picross (Japan) (EN,JA)"
+    "gameName": "Rittai Picross"
   },
   {
     "gameId": "3dpicrosseuds",
@@ -1840,7 +2015,7 @@
     "patchId": [
       "C6PPC00"
     ],
-    "gameName": "Picross 3D (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Picross 3D"
   },
   {
     "gameId": "cod5victoryds",
@@ -1850,7 +2025,7 @@
       "CALKC00",
       "CALPC00"
     ],
-    "gameName": "Call of Duty: World at War (Europe) (EN)"
+    "gameName": "Call of Duty: World at War"
   },
   {
     "gameId": "bokujyomonds",
@@ -1861,7 +2036,7 @@
       "CB9JC02",
       "CB9PC00"
     ],
-    "gameName": "Bokujou Monogatari - Youkoso! Kaze no Bazaar e (Japan) (EN,JA)"
+    "gameName": "Bokujou Monogatari - Youkoso! Kaze no Bazaar e"
   },
   {
     "gameId": "chocotokids",
@@ -1869,7 +2044,7 @@
     "patchId": [
       "CCTJC00"
     ],
-    "gameName": "Cid to Chocobo no Fushigi na Dungeon - Toki Wasure no Meikyuu DS+ (Japan) (EN,JA)"
+    "gameName": "Cid to Chocobo no Fushigi na Dungeon - Toki Wasure no Meikyuu DS+"
   },
   {
     "gameId": "aoemythds",
@@ -1878,7 +2053,7 @@
       "CEPEC00",
       "CEPPC00"
     ],
-    "gameName": "Age of Empires - Mythologies (USA) (EN)"
+    "gameName": "Age of Empires - Mythologies"
   },
   {
     "gameId": "dqmonjoker2ds",
@@ -1888,7 +2063,7 @@
       "CJRJC00",
       "CJRPC00"
     ],
-    "gameName": "Dragon Quest Monsters - Joker 2 (Japan) (EN,JA)"
+    "gameName": "Dragon Quest Monsters - Joker 2"
   },
   {
     "gameId": "momotaro20ds",
@@ -1896,7 +2071,7 @@
     "patchId": [
       "CMOJC00"
     ],
-    "gameName": "Momotarou Dentetsu - 20 Shuunen (Japan) (EN,JA)"
+    "gameName": "Momotarou Dentetsu - 20 Shuunen"
   },
   {
     "gameId": "n/a",
@@ -1904,7 +2079,7 @@
     "patchId": [
       "CN2JC00"
     ],
-    "gameName": "Nobunaga no Yabou DS 2 (Japan) (JA)"
+    "gameName": "Nobunaga no Yabou DS 2"
   },
   {
     "gameId": "mswinterds",
@@ -1915,7 +2090,7 @@
       "COLKC00",
       "COLPC00"
     ],
-    "gameName": "Mario & Sonic at the Olympic Winter Games (USA) (EN,FR,ES)"
+    "gameName": "Mario & Sonic at the Olympic Winter Games"
   },
   {
     "gameId": "pokemondpds",
@@ -1931,7 +2106,7 @@
       "CPUKC00",
       "CPUSC00"
     ],
-    "gameName": "Pokémon Platin-Edition (Europe) (DE)"
+    "gameName": "Pokémon Platin-Edition"
   },
   {
     "gameId": "simsracingds",
@@ -1941,7 +2116,7 @@
       "CQRJC00",
       "CQRPC00"
     ],
-    "gameName": "MySims Racing (USA) (EN,FR,ES)"
+    "gameName": "MySims Racing"
   },
   {
     "gameId": "segaracingds",
@@ -1950,7 +2125,7 @@
       "CS3EC00",
       "CS3PC00"
     ],
-    "gameName": "Sonic & Sega All-Stars Racing (USA) (EN,FR,ES)"
+    "gameName": "Sonic & Sega All-Stars Racing"
   },
   {
     "gameId": "snightxds",
@@ -1958,7 +2133,7 @@
     "patchId": [
       "CS7JC00"
     ],
-    "gameName": "Summon Night X - Tears Crown (Japan) (EN,JA)"
+    "gameName": "Summon Night X - Tears Crown"
   },
   {
     "gameId": "skateitds",
@@ -1967,7 +2142,7 @@
       "CSVEC00",
       "CSVPC00"
     ],
-    "gameName": "Skate It (USA) (EN,FR)"
+    "gameName": "Skate It"
   },
   {
     "gameId": "tsurimasterds",
@@ -1975,7 +2150,7 @@
     "patchId": [
       "CT3JC00"
     ],
-    "gameName": "Mezase!! Tsuri Master DS (Japan) (EN,JA)"
+    "gameName": "Mezase!! Tsuri Master DS"
   },
   {
     "gameId": "winx2010ds",
@@ -1983,7 +2158,7 @@
     "patchId": [
       "CWYPC00"
     ],
-    "gameName": "Winx Club: Your Magic Universe (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Winx Club: Your Magic Universe"
   },
   {
     "gameId": "n/a",
@@ -1992,7 +2167,7 @@
       "CY9EC00",
       "CY9PC00"
     ],
-    "gameName": "Club Penguin: EPF - Herbert's Revenge (USA) (EN,FR,ES)"
+    "gameName": "Club Penguin: EPF - Herbert's Revenge"
   },
   {
     "gameId": "pokemondpds",
@@ -2007,7 +2182,7 @@
       "IPGKC00",
       "IPGSC00"
     ],
-    "gameName": "Pokémon Silberne Edition SoulSilver (Europe) (DE)"
+    "gameName": "Pokémon Silberne Edition SoulSilver"
   },
   {
     "gameId": "pokemondpds",
@@ -2022,7 +2197,7 @@
       "IPKKC00",
       "IPKSC00"
     ],
-    "gameName": "Pokémon Goldene Edition HeartGold (Europe) (DE)"
+    "gameName": "Pokémon Goldene Edition HeartGold"
   },
   {
     "gameId": "syachi2ds",
@@ -2036,7 +2211,7 @@
       "IRAOC00",
       "IRASC00"
     ],
-    "gameName": "Pokémon Weisse Edition (Europe) (DE)"
+    "gameName": "Pokémon Weisse Edition"
   },
   {
     "gameId": "syachi2ds",
@@ -2050,7 +2225,7 @@
       "IRBOC00",
       "IRBSC00"
     ],
-    "gameName": "Pokémon Schwarze Edition (Europe) (DE)"
+    "gameName": "Pokémon Schwarze Edition"
   },
   {
     "gameId": "syachi2ds",
@@ -2064,7 +2239,7 @@
       "IRDOC00",
       "IRDSC00"
     ],
-    "gameName": "Pokémon Weisse Edition 2 (Europe) (DE)"
+    "gameName": "Pokémon Weisse Edition 2"
   },
   {
     "gameId": "syachi2ds",
@@ -2078,7 +2253,7 @@
       "IREOC00",
       "IRESC00"
     ],
-    "gameName": "Pokémon Schwarze Edition 2 (Europe) (DE)"
+    "gameName": "Pokémon Schwarze Edition 2"
   },
   {
     "gameId": "tonosmahds",
@@ -2087,7 +2262,7 @@
       "TB4JC00",
       "TB4JC01"
     ],
-    "gameName": "Tongari Boushi to Oshare na Mahou Tsukai (Japan) (JA)"
+    "gameName": "Tongari Boushi to Oshare na Mahou Tsukai"
   },
   {
     "gameId": "puyopuyo20ds",
@@ -2095,7 +2270,7 @@
     "patchId": [
       "TP4JC00"
     ],
-    "gameName": "Puyo Puyo!! - Puyopuyo 20th Anniversary (Japan) (JA)"
+    "gameName": "Puyo Puyo!! - Puyopuyo 20th Anniversary"
   },
   {
     "gameId": "madeinoreds",
@@ -2105,7 +2280,7 @@
       "UORJC00",
       "UORPC00"
     ],
-    "gameName": "WarioWare: D.I.Y. (USA) (EN)"
+    "gameName": "WarioWare: D.I.Y."
   },
   {
     "gameId": "bandbrosEUds",
@@ -2113,7 +2288,7 @@
     "patchId": [
       "UXBPC00"
     ],
-    "gameName": "Jam with the Band (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Jam with the Band"
   },
   {
     "gameId": "playgroundds",
@@ -2124,7 +2299,7 @@
       "V2GJC00",
       "V2GVC00"
     ],
-    "gameName": "Mario vs. Donkey Kong: Mini-Land Mayhem! (USA) (EN,FR,ES)"
+    "gameName": "Mario vs. Donkey Kong: Mini-Land Mayhem!"
   },
   {
     "gameId": "imagineartds",
@@ -2133,7 +2308,7 @@
       "VATEC00",
       "VATVC00"
     ],
-    "gameName": "Imagine Artist (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Imagine Artist"
   },
   {
     "gameId": "dental2ds",
@@ -2143,7 +2318,7 @@
       "VDEJC00",
       "VDEJC01"
     ],
-    "gameName": "Fossil Fighters Champions (USA) (EN)"
+    "gameName": "Fossil Fighters Champions"
   },
   {
     "gameId": "fifasoc11ds",
@@ -2152,7 +2327,7 @@
       "VELEC00",
       "VELVC00"
     ],
-    "gameName": "FIFA Soccer 11 (USA) (EN,FR,ES)"
+    "gameName": "FIFA Soccer 11"
   },
   {
     "gameId": "n/a",
@@ -2163,7 +2338,7 @@
       "VPYTC00",
       "VPYTC01"
     ],
-    "gameName": "Pokémon Conquest (Europe) (EN)"
+    "gameName": "Pokémon Conquest"
   },
   {
     "gameId": "Decathletesds",
@@ -2172,7 +2347,7 @@
       "YA8EC00",
       "YA8PC00"
     ],
-    "gameName": "World Championship Games - A Track & Field Event (USA) (EN)"
+    "gameName": "World Championship Games - A Track & Field Event"
   },
   {
     "gameId": "arkaUSEUds",
@@ -2181,7 +2356,7 @@
       "YAAEC00",
       "YAAPC00"
     ],
-    "gameName": "Arkanoid DS (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Arkanoid DS"
   },
   {
     "gameId": "amfbowlingds",
@@ -2190,7 +2365,7 @@
       "YAFEC00",
       "YAFPC00"
     ],
-    "gameName": "AMF Bowling Pinbusters! (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "AMF Bowling Pinbusters!"
   },
   {
     "gameId": "bombls2ds",
@@ -2200,7 +2375,7 @@
       "YB2JC00",
       "YB2PC00"
     ],
-    "gameName": "Bomberman Land Touch! 2 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Bomberman Land Touch! 2"
   },
   {
     "gameId": "bomberman20ds",
@@ -2209,7 +2384,7 @@
       "YBAJC00",
       "YBAPC00"
     ],
-    "gameName": "Bomberman 2 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Bomberman 2"
   },
   {
     "gameId": "otonazenshuds",
@@ -2221,7 +2396,7 @@
       "YBNJC00",
       "YBNPC00"
     ],
-    "gameName": "Bibliothek der Klassischen Buecher (Europe) (DE)"
+    "gameName": "Bibliothek der Klassischen Buecher"
   },
   {
     "gameId": "bldragondds",
@@ -2235,7 +2410,7 @@
       "YBUPC00",
       "YBUSC00"
     ],
-    "gameName": "Blue Dragon: Awakened Shadow (Europe) (DE)"
+    "gameName": "Blue Dragon: Awakened Shadow"
   },
   {
     "gameId": "digichampUSds",
@@ -2243,7 +2418,7 @@
     "patchId": [
       "YDIEC00"
     ],
-    "gameName": "Digimon World Championship (USA) (EN)"
+    "gameName": "Digimon World Championship"
   },
   {
     "gameId": "n/a",
@@ -2253,7 +2428,7 @@
       "YDQJC00",
       "YDQPC00"
     ],
-    "gameName": "Dragon Quest IX - Sentinels of the Starry Skies (USA) (EN)"
+    "gameName": "Dragon Quest IX - Sentinels of the Starry Skies"
   },
   {
     "gameId": "n/a",
@@ -2267,7 +2442,7 @@
       "YEEPC00",
       "YEESC00"
     ],
-    "gameName": "Inazuma Eleven (Europe) (DE)"
+    "gameName": "Inazuma Eleven"
   },
   {
     "gameId": "elebitsds",
@@ -2278,7 +2453,7 @@
       "YERKC00",
       "YERPC00"
     ],
-    "gameName": "Elebits: The Adventures of Kai and Zero (USA) (EN,FR)"
+    "gameName": "Elebits: The Adventures of Kai and Zero"
   },
   {
     "gameId": "fifa08ds",
@@ -2289,7 +2464,7 @@
       "YF8PC00",
       "YF8PC01"
     ],
-    "gameName": "FIFA 08 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "FIFA 08"
   },
   {
     "gameId": "fireemblemds",
@@ -2299,7 +2474,7 @@
       "YFEJC00",
       "YFEPC00"
     ],
-    "gameName": "Fire Emblem: Shadow Dragon (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Fire Emblem: Shadow Dragon"
   },
   {
     "gameId": "pokedungeonds",
@@ -2310,7 +2485,7 @@
       "YFTKC00",
       "YFTPC00"
     ],
-    "gameName": "Pokémon Mystery Dungeon: Explorers of Time (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Pokémon Mystery Dungeon: Explorers of Time"
   },
   {
     "gameId": "yugiohwc08ds",
@@ -2321,7 +2496,7 @@
       "YG8KC00",
       "YG8PC00"
     ],
-    "gameName": "Yu-Gi-Oh!: World Championship 2008 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Yu-Gi-Oh!: World Championship 2008"
   },
   {
     "gameId": "girlssecEUds",
@@ -2329,7 +2504,7 @@
     "patchId": [
       "YGDPC00"
     ],
-    "gameName": "Winx Club: Secret Diary 2009 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Winx Club: Secret Diary 2009"
   },
   {
     "gameId": "gwgalaxiesds",
@@ -2338,7 +2513,7 @@
       "YGLEC00",
       "YGLPC00"
     ],
-    "gameName": "Geometry Wars: Galaxies (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Geometry Wars: Galaxies"
   },
   {
     "gameId": "gtacwarsds",
@@ -2348,7 +2523,7 @@
       "YGXJC00",
       "YGXPC00"
     ],
-    "gameName": "Grand Theft Auto: Chinatown Wars (USA) (EN,FR,DE,ES,IT)"
+    "gameName": "Grand Theft Auto: Chinatown Wars"
   },
   {
     "gameId": "luminarc2USds",
@@ -2356,7 +2531,7 @@
     "patchId": [
       "YL2EC00"
     ],
-    "gameName": "Luminous Arc 2 (USA) (EN)"
+    "gameName": "Luminous Arc 2"
   },
   {
     "gameId": "luminarc2ds",
@@ -2364,7 +2539,7 @@
     "patchId": [
       "YL2JC00"
     ],
-    "gameName": "Luminous Arc 2 - Will (Japan) (JA)"
+    "gameName": "Luminous Arc 2 - Will"
   },
   {
     "gameId": "luminarc2EUds",
@@ -2372,7 +2547,7 @@
     "patchId": [
       "YL2PC00"
     ],
-    "gameName": "Luminous Arc 2 (Europe) (EN)"
+    "gameName": "Luminous Arc 2"
   },
   {
     "gamespyId": "YLTD",
@@ -2388,7 +2563,7 @@
       "YLTPC00",
       "YLTSC00"
     ],
-    "gameName": "Professor Layton und die Schatulle der Pandora (Europe) (DE)"
+    "gameName": "Professor Layton und die Schatulle der Pandora"
   },
   {
     "gamespyId": "YNNE",
@@ -2398,7 +2573,7 @@
       "YNNJC01",
       "YNNPC00"
     ],
-    "gameName": "Magician's Quest - Mysterious Times (USA) (EN)"
+    "gameName": "Magician's Quest - Mysterious Times"
   },
   {
     "gameId": "nfsprostds",
@@ -2410,7 +2585,7 @@
       "YNPPC00",
       "YNPPC01"
     ],
-    "gameName": "Need for Speed: ProStreet (USA) (EN)"
+    "gameName": "Need for Speed: ProStreet"
   },
   {
     "gameId": "nobunagapktds",
@@ -2418,14 +2593,14 @@
     "patchId": [
       "YNVJC00"
     ],
-    "gameName": "Kunitori Zunou Battle - Nobunaga no Yabou (Japan) (EN,JA)"
+    "gameName": "Kunitori Zunou Battle - Nobunaga no Yabou"
   },
   {
     "gamespyId": "YNXE",
     "patchId": [
       "YNXEC00"
     ],
-    "gameName": "N+ (USA) (EN)"
+    "gameName": "N+"
   },
   {
     "gamespyId": "YP2E",
@@ -2434,7 +2609,7 @@
       "YP2JC00",
       "YP2PC00"
     ],
-    "gameName": "Pokémon Ranger: Shadows of Almia (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Pokémon Ranger: Shadows of Almia"
   },
   {
     "gameId": "PowaPPocketds",
@@ -2442,7 +2617,7 @@
     "patchId": [
       "YPJJC00"
     ],
-    "gameName": "Power Pro Kun Pocket 10 (Japan) (JA)"
+    "gameName": "Power Pro Kun Pocket 10"
   },
   {
     "gameId": "cvania08ds",
@@ -2453,7 +2628,7 @@
       "YR9KC00",
       "YR9PC00"
     ],
-    "gameName": "Castlevania: Order of Ecclesia (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Castlevania: Order of Ecclesia"
   },
   {
     "gamespyId": "YRME",
@@ -2461,7 +2636,7 @@
       "YRMEC00",
       "YRMPC00"
     ],
-    "gameName": "My Secret World by Imagine (Europe) (EN,FR,DE,ES,IT,NL,SE,DK,NO)"
+    "gameName": "My Secret World by Imagine"
   },
   {
     "gameId": "civrevods",
@@ -2471,7 +2646,7 @@
       "YS6JC00",
       "YS6PC00"
     ],
-    "gameName": "Sid Meier's Civilization Revolution (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Sid Meier's Civilization Revolution"
   },
   {
     "gameId": "sporeds",
@@ -2482,7 +2657,7 @@
       "YSPKC00",
       "YSPPC00"
     ],
-    "gameName": "Spore Creatures (Europe) (EN,FR,DE,ES,IT,NL)"
+    "gameName": "Spore Creatures"
   },
   {
     "gameId": "THPGds",
@@ -2491,7 +2666,7 @@
       "YT9EC00",
       "YT9PC00"
     ],
-    "gameName": "Tony Hawk's Proving Ground (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Tony Hawk's Proving Ground"
   },
   {
     "gameId": "ultimateMKds",
@@ -2500,7 +2675,7 @@
       "YUTEC00",
       "YUTPC00"
     ],
-    "gameName": "Ultimate Mortal Kombat (USA) (EN)"
+    "gameName": "Ultimate Mortal Kombat"
   },
   {
     "gameId": "DSwars2ds",
@@ -2509,7 +2684,7 @@
       "YW2EC00",
       "YW2PC00"
     ],
-    "gameName": "Advance Wars - Days of Ruin (USA) (EN,FR,ES)"
+    "gameName": "Advance Wars - Days of Ruin"
   },
   {
     "gameId": "evosoc08USds",
@@ -2517,7 +2692,7 @@
     "patchId": [
       "YW8EC00"
     ],
-    "gameName": "Pro Evolution Soccer 2008 (USA) (EN)"
+    "gameName": "Pro Evolution Soccer 2008"
   },
   {
     "gameId": "WSWeleven07ds",
@@ -2526,6 +2701,6 @@
       "YW8JC00",
       "YW8PC00"
     ],
-    "gameName": "Pro Evolution Soccer 2008 (Europe) (EN,FR,DE,ES,IT)"
+    "gameName": "Pro Evolution Soccer 2008"
   }
 ]

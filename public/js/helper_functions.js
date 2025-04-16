@@ -107,30 +107,73 @@ const key = "AIzaSyA3ni8rP12zKhLKb96ZE92grnJGgUcCwfM";
 // Function to compatibility data for certain title
 export async function fetchCompatData(id) {
   try {
-    const data = await Promise.all(
-      ranges.map((range) =>
-        fetch(
-          `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${key}`
-        ).then((response) => response.json())
-      )
+    // Fetch spreadsheet metadata to get all sheet names
+    const metadataResponse = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${key}`
     );
+    const metadata = await metadataResponse.json();
 
-    // We receive an array with 3 objects, each containing the values of the range, we format it into an array with the values combined
-    let combined = data[0].values.map((value, i) => [
-      value[0],
-      data[1].values[i][0],
-      data[2].values[i][0],
-    ]);
+    if (!metadata.sheets) {
+      throw new Error("No sheets found in the spreadsheet.");
+    }
 
-    // Remove the header row (the first one)
-    combined.shift();
+    // Extract sheet names
+    const sheetNames = metadata.sheets.map((sheet) => sheet.properties.title);
 
-    // Filter the data based on the three-letter ID passed as argument
-    let filtered = combined.filter((value) => value[0] === id);
+    let combinedData = [];
 
-    return filtered;
+    // Fetch data from each sheet
+    for (const sheetName of sheetNames) {
+      const data = await Promise.all(
+        ranges.map((range) =>
+          fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!${range}?key=${key}`
+          )
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(
+                  `Failed to fetch range ${range} from sheet ${sheetName}: ${response.statusText}`
+                );
+              }
+              return response.json();
+            })
+            .catch((error) => {
+              console.error(
+                `Error fetching range ${range} from sheet ${sheetName}:`,
+                error
+              );
+              return null; // Return null if the fetch fails
+            })
+        )
+      );
+
+      // Validate the fetched data
+      if (data.some((sheetData) => !sheetData || !sheetData.values)) {
+        console.warn(`Invalid data fetched from sheet ${sheetName}:`, data);
+        continue; // Skip this sheet if data is invalid
+      }
+
+      // Combine data from the current sheet
+      const sheetCombined = data[0].values.map((value, i) => [
+        value[0],
+        data[1].values[i]?.[0] || "",
+        data[2].values[i]?.[0] || "",
+      ]);
+
+      // Remove the header row (the first one)
+      sheetCombined.shift();
+
+      // Add the combined data from this sheet to the overall combined data
+      combinedData = combinedData.concat(sheetCombined);
+    }
+
+    // Filter the combined data based on the three-letter ID passed as argument
+    const filteredData = combinedData.filter((value) => value[0] === id);
+
+    return filteredData;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching data from all pages:", error);
+    return []; // Return an empty array in case of an error
   }
 }
 
@@ -191,14 +234,12 @@ export async function loadPrerenderImage(format, title) {
     // Try fetching the Wii image
     const wiiResponse = await fetch(wiiUrl);
     if (wiiResponse.ok) {
-      console.log("Wii image found");
       return wiiUrl;
     }
 
     // If Wii image fails, try fetching the DS image
     const dsResponse = await fetch(dsUrl);
     if (dsResponse.ok) {
-      console.log("DS image found");
       return dsUrl;
     }
 
