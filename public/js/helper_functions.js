@@ -232,15 +232,19 @@ export async function loadPrerenderImage(format, title) {
 
   try {
     // Try fetching the Wii image
-    const wiiResponse = await fetch(wiiUrl);
-    if (wiiResponse.ok) {
-      return wiiUrl;
+    if (wiiUrl) {
+      const wiiResponse = await fetch(wiiUrl, { timeout: 5000 });
+      if (wiiResponse.ok) {
+        return wiiUrl;
+      }
     }
 
     // If Wii image fails, try fetching the DS image
-    const dsResponse = await fetch(dsUrl);
-    if (dsResponse.ok) {
-      return dsUrl;
+    if (dsUrl) {
+      const dsResponse = await fetch(dsUrl, { timeout: 5000 });
+      if (dsResponse.ok) {
+        return dsUrl;
+      }
     }
 
     // If both fail, return the fallback image
